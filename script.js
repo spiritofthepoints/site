@@ -17,7 +17,7 @@ const SPIRIT_PATH = {
   name: "Spirit Path",
   subtitle: "Heart · 4 &nbsp;·&nbsp; Fire",
   image: "assets/card_spirit_path.jpg",
-  cardLink: "https://spiritofthepoints.com/cards/spirit-path",
+  cardLink: "https://spiritofthepoints.com/draw/spirit-path",
   audio: "assets/spirit_path_meditation.mp3",
   audioLabel: "Guided Meditation · Spirit Path, Heart 4",
   ritualTitle: "Reflect and Journal on Your Nature",

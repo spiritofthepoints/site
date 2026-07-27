@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spirit Path · Heart 4 · Spirit of the Points</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Cormorant+SC:wght@300;400;500&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --indigo: #1D2438;
+      --indigo-dark: #161c2d;
+      --indigo-mid: #232b42;
+      --sand: #F3E9D8;
+      --sand-dark: #e8d9c0;
+      --stone: #6F8798;
+      --gold: #C7A25A;
+      --gold-light: #d4b47a;
+      --gold-dim: rgba(199,162,90,0.25);
+      --muted-sand: #8a7d6a;
+      --font-serif: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+      --font-sc: 'Cormorant SC', 'Cormorant Garamond', Georgia, serif;
+      --font-cinzel: 'Cinzel', Georgia, serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      line-height: 1.8;
+      color: var(--indigo);
+      background: var(--indigo-dark);
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; height: auto; }
+    a { text-decoration: none; }
+    p { margin-bottom: 1.4rem; }
+    p:last-child { margin-bottom: 0; }
+
+    /* ── Stars background ── */
+    .stars {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background:
+        radial-gradient(ellipse at 20% 20%, rgba(199,162,90,0.04) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 80%, rgba(199,162,90,0.03) 0%, transparent 60%);
+    }
+
+    /* ── Nav ── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(22,28,45,0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(199,162,90,0.18);
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+    .nav-logo-title {
+      font-family: var(--font-sc);
+      font-size: 0.82rem;
+      letter-spacing: 0.2em;
+      color: var(--sand);
+      opacity: 0.9;
+    }
+    .nav-logo-sub {
+      font-family: var(--font-sc);
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      color: var(--gold);
+      opacity: 0.65;
+    }
+    .nav-cta {
+      font-family: var(--font-sc);
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      color: var(--gold);
+      border: 1px solid rgba(199,162,90,0.4);
+      padding: 0.5rem 1.1rem;
+      border-radius: 2px;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+      white-space: nowrap;
+    }
+    .nav-cta:hover {
+      background: var(--gold);
+      color: var(--indigo);
+      border-color: var(--gold);
+    }
+
+    /* ── Hero: deep indigo with stars, card centered ── */
+    .card-hero {
+      position: relative;
+      z-index: 1;
+      background: linear-gradient(180deg, var(--indigo-dark) 0%, var(--indigo) 100%);
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+      overflow: hidden;
+    }
+    .card-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 50% -10%, rgba(199,162,90,0.1) 0%, transparent 55%),
+        radial-gradient(ellipse at 50% 110%, rgba(199,162,90,0.05) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .card-hero-inner {
+      max-width: 520px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Card image with glow */
+    .card-img-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2.5rem;
+    }
+    .card-img {
+      width: 220px;
+      border-radius: 10px;
+      box-shadow:
+        0 60px 120px rgba(0,0,0,0.7),
+        0 0 60px rgba(199,162,90,0.15),
+        0 0 120px rgba(199,162,90,0.06);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .card-img:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow:
+        0 80px 140px rgba(0,0,0,0.75),
+        0 0 80px rgba(199,162,90,0.22),
+        0 0 140px rgba(199,162,90,0.08);
+    }
+
+    .card-eyebrow {
+      font-family: var(--font-sc);
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      opacity: 0.85;
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+    .card-title {
+      font-family: var(--font-cinzel);
+      font-size: clamp(2.4rem, 6vw, 3.6rem);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--sand);
+      line-height: 1.1;
+      margin-bottom: 0.6rem;
+    }
+    .card-subtitle {
+      font-family: var(--font-sc);
+      font-size: 0.78rem;
+      letter-spacing: 0.2em;
+      color: rgba(243,233,216,0.4);
+    }
+
+    /* Gold ornament divider */
+    .ornament-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.2rem;
+      margin: 3rem auto;
+      max-width: 400px;
+    }
+    .ornament-divider::before,
+    .ornament-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(199,162,90,0.4), transparent);
+    }
+    .ornament-divider span {
+      font-size: 0.65rem;
+      color: var(--gold);
+      opacity: 0.7;
+      letter-spacing: 0.3em;
+    }
+
+    /* ── Content area: sand background ── */
+    .card-content {
+      position: relative;
+      z-index: 1;
+      background: var(--sand);
+      padding: 5rem 2rem 6rem;
+    }
+    .card-content-inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* Section labels */
+    .section-label {
+      font-family: var(--font-sc);
+      font-size: 0.7rem;
+      letter-spacing: 0.28em;
+      color: var(--muted-sand);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Content dividers */
+    .content-rule {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 3rem 0;
+    }
+    .content-rule::before,
+    .content-rule::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(29,36,56,0.12);
+    }
+    .content-rule span {
+      font-size: 0.6rem;
+      color: var(--gold);
+      letter-spacing: 0.2em;
+    }
+
+    /* Passage */
+    .passage {
+      font-family: var(--font-serif);
+      font-size: 1.08rem;
+      line-height: 1.95;
+      color: var(--indigo);
+    }
+    .passage p { margin-bottom: 1.3rem; }
+    .passage .verse {
+      font-style: italic;
+      padding-left: 1.25rem;
+      border-left: 2px solid var(--gold);
+      margin: 1.5rem 0;
+      line-height: 2.1;
+      color: rgba(29,36,56,0.85);
+    }
+    .passage .pull {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.2rem;
+      line-height: 1.75;
+      color: var(--indigo);
+      border-top: 1px solid rgba(199,162,90,0.3);
+      border-bottom: 1px solid rgba(199,162,90,0.3);
+      padding: 1.5rem 0;
+      margin: 2rem 0;
+      text-align: center;
+    }
+
+    /* Audio block */
+    .audio-block {
+      background: var(--indigo);
+      border-radius: 8px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .audio-block::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(199,162,90,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .audio-eyebrow {
+      font-family: var(--font-sc);
+      font-size: 0.68rem;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      opacity: 0.8;
+      display: block;
+      margin-bottom: 0.5rem;
+      position: relative;
+    }
+    .audio-title {
+      font-family: var(--font-cinzel);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--sand);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.4rem;
+      position: relative;
+    }
+    .audio-subtitle {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 0.9rem;
+      color: rgba(243,233,216,0.5);
+      margin-bottom: 1.75rem;
+      position: relative;
+    }
+    .audio-block audio {
+      width: 100%;
+      max-width: 480px;
+      position: relative;
+      border-radius: 4px;
+    }
+    /* Style the native audio player on sand bg */
+    .audio-block audio::-webkit-media-controls-panel {
+      background: rgba(243,233,216,0.1);
+    }
+
+    /* Ritual */
+    .ritual-title {
+      font-family: var(--font-cinzel);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--indigo);
+      letter-spacing: 0.04em;
+      margin-bottom: 1.5rem;
+      line-height: 1.3;
+    }
+    .ritual {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      line-height: 1.95;
+      color: var(--indigo);
+    }
+    .ritual p { margin-bottom: 1.3rem; }
+
+    /* ── Upsell: deep indigo ── */
+    .upsell {
+      position: relative;
+      z-index: 1;
+      background: var(--indigo);
+      padding: 5rem 2rem 5rem;
+      text-align: center;
+      overflow: hidden;
+    }
+    .upsell::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(199,162,90,0.09) 0%, transparent 55%),
+        radial-gradient(ellipse at 50% 100%, rgba(199,162,90,0.04) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .upsell-inner {
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .upsell-ornament {
+      width: 48px;
+      margin: 0 auto 2rem;
+      opacity: 0.5;
+    }
+    .upsell-eyebrow {
+      font-family: var(--font-sc);
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .upsell h2 {
+      font-family: var(--font-cinzel);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 600;
+      color: var(--sand);
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.04em;
+    }
+    .upsell-body {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.05rem;
+      color: rgba(243,233,216,0.68);
+      line-height: 1.85;
+      margin-bottom: 2.5rem;
+    }
+    .upsell-includes {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 2.5rem;
+      text-align: left;
+      max-width: 360px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .upsell-item {
+      font-family: var(--font-sc);
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      color: rgba(243,233,216,0.65);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .upsell-item::before {
+      content: '✦';
+      color: var(--gold);
+      font-size: 0.55rem;
+      flex-shrink: 0;
+    }
+    .btn-gold {
+      display: inline-block;
+      font-family: var(--font-sc);
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      color: var(--indigo);
+      background: var(--gold);
+      border: none;
+      padding: 1rem 2.5rem;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      text-transform: uppercase;
+      box-shadow: 0 4px 20px rgba(199,162,90,0.25);
+    }
+    .btn-gold:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(199,162,90,0.35);
+    }
+    .upsell-price {
+      font-family: var(--font-sc);
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      color: rgba(199,162,90,0.45);
+      margin-top: 1.25rem;
+      display: block;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      position: relative;
+      z-index: 1;
+      background: var(--indigo-dark);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      border-top: 1px solid rgba(199,162,90,0.1);
+    }
+    .footer p {
+      font-family: var(--font-sc);
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      color: rgba(243,233,216,0.25);
+      margin-bottom: 0.3rem;
+    }
+
+    /* ── Scroll reveal ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+    .reveal-delay { transition-delay: 0.15s; }
+    .reveal-delay-2 { transition-delay: 0.3s; }
+
+    /* ── Mobile ── */
+    @media (max-width: 600px) {
+      .card-img { width: 170px; }
+      .card-content { padding: 3.5rem 1.25rem 4rem; }
+      .upsell { padding: 3.5rem 1.25rem 4rem; }
+      .audio-block { padding: 2rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="stars" aria-hidden="true"></div>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="../../" class="nav-logo">
+        <span class="nav-logo-title">Spirit of the Points</span>
+        <span class="nav-logo-sub">A Living Practice</span>
+      </a>
+      <a href="../../#offer" class="nav-cta">Begin Your Practice</a>
+    </div>
+  </nav>
+
+  <!-- Card Hero -->
+  <section class="card-hero">
+    <div class="card-hero-inner">
+      <div class="card-img-wrap reveal">
+        <img
+          src="../../assets/card_spirit_path.jpg"
+          alt="Spirit Path oracle card — a woman meditating beneath moon phases in a starlit garden"
+          class="card-img"
+        />
+      </div>
+      <span class="card-eyebrow reveal reveal-delay">Heart · 4 &nbsp;·&nbsp; Fire</span>
+      <h1 class="card-title reveal reveal-delay">Spirit Path</h1>
+      <p class="card-subtitle reveal reveal-delay-2">Spirit of the Points</p>
+
+      <div class="ornament-divider reveal reveal-delay-2"><span>✦</span></div>
+    </div>
+  </section>
+
+  <!-- Card Content -->
+  <section class="card-content">
+    <div class="card-content-inner">
+
+      <!-- Passage -->
+      <span class="section-label reveal">Guidebook Passage</span>
+      <div class="passage reveal">
+        <p class="verse">
+          Let your heart tug you toward what makes your nature sing.<br>
+          Just as the oak lives inside the acorn,<br>
+          your path lives inside you.
+        </p>
+        <p>It is not charted in maps or laid out by others. It pulses in the thrum of your chest, louder than fear, more vital than doubt.</p>
+        <p>Your heart knows the way. You only need to make space to hear it.</p>
+        <p>When you pause and turn inward, you are not searching for your path. You are remembering it.</p>
+        <p>In Taoism and Chinese medicine, the Heart is more than an organ. It is the home of Shen, your spirit. A vessel through which the Tao expresses itself.</p>
+        <p>When the Heart is clear and open, it becomes a compass, guiding you toward what resonates with your nature and aligning your action with the flow.</p>
+        <p class="pull">Clarity does not come from chasing or proving.<br>It comes from returning.<br>To stillness. To truth.<br>To the quiet authority of your own knowing.</p>
+        <p>The artists, visionaries, and seekers we revere did not force their brilliance into being. They made space for it. They listened. They followed what felt true.</p>
+        <p>Your heart is the instrument through which the universe guides you, moment by moment. When you align with it, you become a tuning fork for the Tao.</p>
+        <p>The way this boundless energy moves through you is your destiny. Your spirit path.</p>
+        <p class="verse">
+          Your heart is not lost.<br>
+          It has never been lost.<br>
+          Listen,<br>
+          and you will know the way.
+        </p>
+      </div>
+
+      <!-- Meditation -->
+      <div class="content-rule reveal"><span>✦</span></div>
+      <span class="section-label reveal">Guided Meditation</span>
+      <div class="audio-block reveal">
+        <span class="audio-eyebrow">11 Minutes</span>
+        <p class="audio-title">Spirit Path</p>
+        <p class="audio-subtitle">Heart 4 &nbsp;·&nbsp; Fire</p>
+        <audio controls preload="none">
+          <source src="../../assets/spirit_path_meditation.mp3" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+
+      <!-- Ritual -->
+      <div class="content-rule reveal"><span>✦</span></div>
+      <span class="section-label reveal">Daily Ritual</span>
+      <p class="ritual-title reveal">Reflect and Journal on Your Nature</p>
+      <div class="ritual reveal">
+        <p>In your journal, explore the deepest impulses of your nature. Ask yourself what truly matters to you beneath roles, achievements, and expectations. Imagine looking back at your life from its final chapter. What would you hope to be remembered for? What words would make you feel proud if they were spoken about you?</p>
+        <p>Then bring this reflection into the present. Ask yourself what one simple, tangible action could express this deeper impulse in your life today.</p>
+        <p>Carry these answers with you. Let them inform how you move, speak, and show up. Not as pressure, but as an inner compass pointing you toward what feels honest, resonant, and alive.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Upsell -->
+  <section class="upsell">
+    <div class="upsell-inner">
+      <img src="../../assets/logo_ornament_clean.png" alt="" class="upsell-ornament reveal" aria-hidden="true" />
+      <span class="upsell-eyebrow reveal">The Full Practice</span>
+      <h2 class="reveal">62 Cards.<br>62 Meditations.<br>62 Rituals.</h2>
+      <p class="upsell-body reveal">Each of the 62 cards in Spirit of the Points carries its own passage, guided meditation, and daily ritual — a complete living practice rooted in ancient Chinese medicine, designed to be lived one card at a time.</p>
+      <div class="upsell-includes reveal">
+        <div class="upsell-item">62 original illustrated oracle cards</div>
+        <div class="upsell-item">Hardcover guidebook</div>
+        <div class="upsell-item">62 guided meditations</div>
+        <div class="upsell-item">62 grounding rituals</div>
+        <div class="upsell-item">Private community circle</div>
+      </div>
+      <a href="../../#offer" class="btn-gold reveal">Begin Your Practice — $125</a>
+      <span class="upsell-price reveal">Launch pricing &bull; Regularly $165</span>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>Spirit of the Points &nbsp;&bull;&nbsp; A Living Practice</p>
+    <p>&copy; 2026 Suzanne Spiegel. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
