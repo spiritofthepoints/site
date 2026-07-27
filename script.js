@@ -1,51 +1,55 @@
 /* ═══════════════════════════════════════════════════════
    SPIRIT OF THE POINTS — Interactive Script
+   Draw flow v2:
+     1. Fan spread — all cards face-down
+     2. User clicks → card flips immediately (free)
+        Card name + subtitle appear below
+        Email invite fades in below that
+     3. User submits email →
+        Content reveals immediately (optimistic)
+        ConvertKit submission fires async in background
 ═══════════════════════════════════════════════════════ */
 
 // ── Card Data ──
+// For this proof-of-concept, all 7 fan positions map to Spirit Path.
+// When the full deck is live, each entry will have its own data.
+const SPIRIT_PATH = {
+  name: "Spirit Path",
+  subtitle: "Heart · 4 &nbsp;·&nbsp; Fire",
+  image: "assets/card_spirit_path.jpg",
+  cardLink: "https://spiritofthepoints.com/cards/spirit-path",
+  audio: "assets/spirit_path_meditation.mp3",
+  audioLabel: "Guided Meditation · Spirit Path, Heart 4",
+  ritualTitle: "Reflect and Journal on Your Nature",
+  passage: [
+    { type: "verse", text: "Let your heart tug you toward what makes your nature sing.\nJust as the oak lives inside the acorn,\nyour path lives inside you." },
+    { type: "prose", text: "It is not charted in maps or laid out by others. It pulses in the thrum of your chest, louder than fear, more vital than doubt." },
+    { type: "prose", text: "Your heart knows the way. You only need to make space to hear it." },
+    { type: "prose", text: "When you pause and turn inward, you are not searching for your path. You are remembering it." },
+    { type: "prose", text: "In Taoism and Chinese medicine, the Heart is more than an organ. It is the home of Shen, your spirit. A vessel through which the Tao expresses itself." },
+    { type: "prose", text: "When the Heart is clear and open, it becomes a compass, guiding you toward what resonates with your nature and aligning your action with the flow." },
+    { type: "prose", text: "Clarity does not come from chasing or proving. It comes from returning. To stillness. To truth. To the quiet authority of your own knowing." },
+    { type: "prose", text: "The artists, visionaries, and seekers we revere did not force their brilliance into being. They made space for it. They listened. They followed what felt true." },
+    { type: "prose", text: "Your heart is the instrument through which the universe guides you, moment by moment. When you align with it, you become a tuning fork for the Tao." },
+    { type: "prose", text: "The way this boundless energy moves through you is your destiny. Your spirit path." },
+    { type: "verse", text: "Your heart is not lost.\nIt has never been lost.\nListen,\nand you will know the way." }
+  ],
+  ritual: [
+    "In your journal, explore the deepest impulses of your nature. Ask yourself what truly matters to you beneath roles, achievements, and expectations. Imagine looking back at your life from its final chapter. What would you hope to be remembered for? What words would make you feel proud if they were spoken about you?",
+    "Then bring this reflection into the present. Ask yourself what one simple, tangible action could express this deeper impulse in your life today.",
+    "Carry these answers with you. Let them inform how you move, speak, and show up. Not as pressure, but as an inner compass pointing you toward what feels honest, resonant, and alive."
+  ]
+};
+
+// All 7 fan positions use Spirit Path for this proof-of-concept
 const cards = [
-  {
-    name: "Yin Mound",
-    image: "assets/Oracle12.jpg",
-    passage: "You were born with a divine blueprint, an inner architecture guided by the Tao itself. When you live in resonance with it, life doesn't need to be forced. It flows with greater vitality, clarity, and joy.\n\nThere's a difference between pushing yourself forward and being pulled by what resonates. One drains your essence. The other strengthens it.",
-    practice: "Settle into stillness. Place one hand on your lower abdomen. Breathe slowly, feeling warmth gather beneath your palm. Notice what in your life feels like effort — and what feels like flow."
-  },
-  {
-    name: "Abundant Splendor",
-    image: "assets/Oracle25.jpg",
-    passage: "There is a field beyond striving where life meets itself with open hands. You have been there before — in the moment a laugh surprised you, in the warmth of sun on skin, in the quiet after rain.\n\nAbundance is not something to acquire. It is something to remember.",
-    practice: "Step outside. Feel the ground beneath your feet. Name three things your body can sense right now — not what you think, but what you feel. Let abundance be as simple as this."
-  },
-  {
-    name: "Dark Gate",
-    image: "assets/Oracle61.jpg",
-    passage: "Every threshold has a guardian. The dark gate is not a wall — it is an invitation to descend into what you have not yet allowed yourself to know.\n\nWhat lies beneath the surface of your days is not something to fear. It is the source of your deepest wisdom, waiting to be met.",
-    practice: "Find a quiet place. Close your eyes. Breathe into the places in your body that feel heavy or unknown. You do not need to fix anything — only to be present with what is."
-  },
-  {
-    name: "Utmost Middle",
-    image: "assets/Oracle2.jpg",
-    passage: "The center is not a place you find once and keep forever. It is a place you return to, again and again, through the practice of coming home to yourself.\n\nWhen the winds of the world pull you outward, the middle holds. Not rigid — rooted.",
-    practice: "Sit with your spine long and your hands resting open. Breathe into the center of your chest. With each exhale, let the edges of you soften. You are already here."
-  },
-  {
-    name: "One Hundred Meetings",
-    image: "assets/Oracle3.jpg",
-    passage: "At the crown of the head, all the meridians converge. All the rivers of your life meet here — every experience, every loss, every moment of grace.\n\nYou are not the sum of your parts. You are the place where they all come together.",
-    practice: "Gently place your fingertips at the crown of your head. Breathe slowly. Imagine all the threads of your life gathering here — not tangled, but woven. You are whole."
-  },
-  {
-    name: "Grasping the Wind",
-    image: "assets/Oracle20.jpg",
-    passage: "The mind that grasps at everything holds nothing. The wind cannot be caught — only felt, only moved through.\n\nWhat are you holding so tightly that you cannot feel it anymore? What would it mean to open your hands?",
-    practice: "Open your palms and hold them upward. Breathe in — and as you exhale, consciously release the grip in your hands, your jaw, your shoulders. Practice letting the wind move through you."
-  },
-  {
-    name: "Body Pillar",
-    image: "assets/Oracle21.jpg",
-    passage: "The body is not a vessel for the spirit. The body is the spirit, made visible. Every sensation is a message. Every ache, a teacher. Every breath, a prayer.\n\nCome back to the body. It has been waiting for you.",
-    practice: "Stand barefoot if you can. Feel the ground beneath you. Slowly scan from feet to crown — not judging, only noticing. The body is always speaking. Today, simply listen."
-  }
+  SPIRIT_PATH,
+  SPIRIT_PATH,
+  SPIRIT_PATH,
+  SPIRIT_PATH,
+  SPIRIT_PATH,
+  SPIRIT_PATH,
+  SPIRIT_PATH
 ];
 
 let selectedCardIndex = null;
@@ -54,41 +58,32 @@ let selectedCardIndex = null;
    FANNED ARC CARD DRAW
 ═══════════════════════════════════════════════════════ */
 
-/**
- * Build the fanned arc of cards.
- * 7 cards arranged in a gentle arc — natural hand-held spread.
- */
 function buildCardFan() {
   const stage = document.querySelector('.card-fan-stage');
   if (!stage) return;
   stage.innerHTML = '';
 
-  const count = cards.length; // 7
+  const count = cards.length;
   const isMobile = window.innerWidth < 600;
 
-  // Arc parameters
-  const totalArcDeg = isMobile ? 50 : 70;   // total sweep of the fan
-  const startAngle = -(totalArcDeg / 2);     // e.g. -35deg
+  const totalArcDeg = isMobile ? 50 : 70;
+  const startAngle = -(totalArcDeg / 2);
   const angleStep = totalArcDeg / (count - 1);
 
-  // Vertical drop: cards at the edges drop lower (arc effect)
-  // We position cards from bottom-center of the stage
   const stageW = stage.offsetWidth || 800;
-  const radius = isMobile ? 320 : 420;       // arc radius in px
+  const radius = isMobile ? 320 : 420;
   const centerX = stageW / 2;
-  const originY = isMobile ? 480 : 580;      // virtual pivot point below stage bottom
+  const originY = isMobile ? 480 : 580;
 
   cards.forEach((card, i) => {
     const angleDeg = startAngle + i * angleStep;
     const angleRad = (angleDeg * Math.PI) / 180;
 
-    // Position: arc from a point below the stage
     const x = centerX + radius * Math.sin(angleRad);
     const y = originY - radius * Math.cos(angleRad);
 
-    // Card width
     const cardW = isMobile ? 90 : 130;
-    const cardH = cardW * 1.56; // approximate card aspect ratio
+    const cardH = cardW * 1.56;
 
     const el = document.createElement('div');
     el.className = 'fan-card';
@@ -97,25 +92,19 @@ function buildCardFan() {
     el.setAttribute('tabindex', '0');
     el.setAttribute('aria-label', `Choose card ${i + 1}`);
 
-    // Position: center the card on its arc point
     el.style.left = `${x - cardW / 2}px`;
     el.style.top = `${y - cardH}px`;
     el.style.width = `${cardW}px`;
-
-    // Rotate card to follow the arc tangent
     el.style.transform = `rotate(${angleDeg}deg)`;
 
-    // z-index: middle cards on top
     const distFromCenter = Math.abs(i - (count - 1) / 2);
     el.style.zIndex = Math.round(10 - distFromCenter * 2);
 
     el.innerHTML = `<img src="assets/card_back_moon.webp" alt="Oracle card face down" draggable="false" />`;
 
-    // Hover: lift the card upward (in its local space) and brighten
     el.addEventListener('mouseenter', () => {
       el.style.transform = `rotate(${angleDeg}deg) translateY(-22px) scale(1.06)`;
       el.style.zIndex = '20';
-      // Dim siblings (fallback for browsers without :has())
       document.querySelectorAll('.fan-card').forEach(c => {
         if (c !== el) c.classList.add('sibling-dim');
       });
@@ -141,13 +130,23 @@ function buildCardFan() {
 
 /**
  * User selects a card from the fan.
- * Fan fades out, step 2 fades in with the chosen card (face-down).
+ * Fan fades out → step 2 appears → card flips immediately.
  */
 function selectFanCard(index) {
   selectedCardIndex = index;
+  const card = cards[index];
 
   const step1 = document.getElementById('draw-step-1');
   const step2 = document.getElementById('draw-step-2');
+
+  // Preload the card front image
+  const frontImg = document.getElementById('chosen-front-img');
+  frontImg.src = card.image;
+  frontImg.alt = card.name + ' oracle card';
+
+  // Set card name and subtitle (visible after flip)
+  document.getElementById('chosen-card-name').textContent = card.name;
+  document.getElementById('chosen-card-subtitle').innerHTML = card.subtitle;
 
   // Animate fan out
   step1.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
@@ -157,57 +156,130 @@ function selectFanCard(index) {
   setTimeout(() => {
     step1.style.display = 'none';
 
-    // Show step 2 — card still face-down
+    // Show step 2
     step2.style.display = 'block';
     step2.style.opacity = '0';
     requestAnimationFrame(() => {
+      step2.style.transition = 'opacity 0.5s ease';
       step2.style.opacity = '1';
     });
 
     step2.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    // Flip the card after a short pause (let user see the back first)
+    setTimeout(() => {
+      const flipEl = document.getElementById('chosen-card-flip');
+      flipEl.classList.add('flipped');
+
+      // After flip completes, fade in the email invite
+      setTimeout(() => {
+        const invite = document.getElementById('draw-email-invite');
+        invite.style.display = 'block';
+        invite.style.opacity = '0';
+        requestAnimationFrame(() => {
+          invite.style.transition = 'opacity 0.6s ease';
+          invite.style.opacity = '1';
+        });
+      }, 800); // wait for flip animation
+
+    }, 600); // brief pause before flip
+
   }, 500);
 }
 
 /**
- * User submits email — flip the card and show confirmation.
+ * User submits email.
+ * 1. Reveal content immediately (optimistic — never blocked by API).
+ * 2. Fire ConvertKit submission async in background.
  */
 function handleDrawSubmit(event) {
   event.preventDefault();
-  const email = document.getElementById('draw-email').value;
+  const emailInput = document.getElementById('draw-email');
+  const email = emailInput.value.trim();
   if (!email || selectedCardIndex === null) return;
 
   const card = cards[selectedCardIndex];
 
-  // Flip the card
-  const flipEl = document.getElementById('chosen-card-flip');
-  flipEl.classList.add('flipped');
+  // ── 1. Reveal content immediately ──
+  revealCardContent(card);
 
-  // After flip completes, transition to step 3
+  // ── 2. Fire ConvertKit async (non-blocking) ──
+  submitToConvertKit(email, card.name, card.cardLink);
+}
+
+function revealCardContent(card) {
+  // Hide the email form
+  const invite = document.getElementById('draw-email-invite');
+  invite.style.transition = 'opacity 0.3s ease';
+  invite.style.opacity = '0';
+  setTimeout(() => { invite.style.display = 'none'; }, 300);
+
+  // Populate passage
+  const passageEl = document.getElementById('draw-passage-text');
+  passageEl.innerHTML = '';
+  card.passage.forEach(block => {
+    const p = document.createElement('p');
+    if (block.type === 'verse') {
+      p.className = 'passage-verse';
+      p.innerHTML = block.text.replace(/\n/g, '<br>');
+    } else {
+      p.textContent = block.text;
+    }
+    passageEl.appendChild(p);
+  });
+
+  // Populate audio
+  document.getElementById('draw-audio-label').textContent = card.audioLabel;
+  const audioSource = document.getElementById('draw-audio-source');
+  const audioPlayer = document.getElementById('draw-audio-player');
+  audioSource.src = card.audio;
+  audioPlayer.load();
+
+  // Populate ritual
+  document.getElementById('draw-ritual-title').textContent = card.ritualTitle;
+  const ritualEl = document.getElementById('draw-ritual-text');
+  ritualEl.innerHTML = '';
+  card.ritual.forEach(para => {
+    const p = document.createElement('p');
+    p.textContent = para;
+    ritualEl.appendChild(p);
+  });
+
+  // Show content
+  const contentEl = document.getElementById('draw-content-reveal');
+  contentEl.style.display = 'block';
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      contentEl.style.opacity = '1';
+    });
+  });
+
+  // Scroll to content
   setTimeout(() => {
-    const step2 = document.getElementById('draw-step-2');
-    const step3 = document.getElementById('draw-step-3');
+    contentEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 100);
+}
 
-    step2.style.transition = 'opacity 0.5s ease';
-    step2.style.opacity = '0';
-
-    setTimeout(() => {
-      step2.style.display = 'none';
-
-      // Populate step 3
-      const confirmImg = document.getElementById('confirm-card-img');
-      confirmImg.src = card.image;
-      confirmImg.alt = card.name + ' oracle card';
-
-      step3.style.display = 'block';
-      step3.style.opacity = '0';
-      requestAnimationFrame(() => {
-        step3.style.opacity = '1';
-        step3.style.transition = 'opacity 0.6s ease';
-      });
-
-      step3.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }, 400);
-  }, 850); // wait for flip animation (0.75s)
+/**
+ * Submit to ConvertKit via Netlify Function.
+ * Fires silently — never blocks or errors to the user.
+ */
+function submitToConvertKit(email, cardName, cardLink) {
+  fetch('/.netlify/functions/subscribe', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email, card_name: cardName, card_link: cardLink })
+  })
+  .then(res => {
+    if (!res.ok) {
+      console.warn('[ConvertKit] Subscription response not OK:', res.status);
+    } else {
+      console.log('[ConvertKit] Subscription submitted successfully.');
+    }
+  })
+  .catch(err => {
+    console.warn('[ConvertKit] Subscription failed silently:', err);
+  });
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -272,5 +344,3 @@ window.addEventListener('scroll', () => {
     heroCards.style.transform = `translateY(${window.scrollY * 0.08}px)`;
   }
 });
-
-

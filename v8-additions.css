@@ -270,3 +270,73 @@
     font-size: clamp(2rem, 7vw, 2.8rem) !important;
   }
 }
+
+/* ── Book spread verse / poem paragraphs ── */
+.gb-verse {
+  font-style: italic;
+  line-height: 1.9;
+  color: var(--indigo);
+  margin-bottom: 1rem;
+  padding-left: 0.75rem;
+  border-left: 2px solid var(--gold);
+}
+
+/* ── Offer section additions ── */
+.offer-tagline {
+  font-size: 1rem;
+  color: rgba(243,233,216,0.9);
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+
+.offer-price-cta {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--gold);
+  margin-top: 0.75rem;
+  letter-spacing: 0.04em;
+}
+
+.offer-price-regular {
+  font-weight: 400;
+  opacity: 0.65;
+  font-size: 0.85rem;
+  text-decoration: line-through;
+}
+
+.offer-summary {
+  font-size: 0.75rem;
+  color: rgba(243,233,216,0.55);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 1.25rem;
+  line-height: 1.7;
+}
+
+/* ── Hero price note (below CTA button) ── */
+.hero-price-note {
+  font-size: 0.82rem;
+  color: var(--gold);
+  letter-spacing: 0.06em;
+  margin-top: 0.6rem;
+  margin-bottom: 0.4rem;
+  line-height: 1.7;
+}
+
+.hero-price-regular {
+  font-size: 0.75rem;
+  opacity: 0.65;
+  text-decoration: line-through;
+  color: var(--gold);
+}
+
+/* ── Offer CTA button — taller (offer section only) ── */
+.btn-cta-tall {
+  padding-top: 1.1rem !important;
+  padding-bottom: 1.1rem !important;
+}
+
+/* ── Clean price (no strikethrough) ── */
+.offer-price-clean .price-current {
+  font-size: 2.8rem;
+}

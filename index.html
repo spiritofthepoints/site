@@ -41,6 +41,184 @@
         letter-spacing: 0.08em !important;
       }
     }
+
+    /* ── DRAW SECTION — NEW FLOW STYLES ── */
+
+    /* Step 2: card flips immediately, name appears, email below */
+    .draw-card-name {
+      font-family: var(--font-cinzel);
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--indigo);
+      margin: 1.25rem 0 0.25rem;
+      text-align: center;
+    }
+    .draw-card-subtitle {
+      font-family: var(--font-sc);
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      color: var(--muted-sand);
+      text-align: center;
+      margin-bottom: 0;
+    }
+    .draw-flip-scene {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    /* Email prompt — invitation style, not a gate */
+    .draw-email-invite {
+      text-align: center;
+      max-width: 480px;
+      margin: 0 auto 2rem;
+      padding: 2rem 1.5rem;
+      border-top: 1px solid rgba(29,36,56,0.12);
+    }
+    .draw-email-invite h3 {
+      font-family: var(--font-cinzel);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--indigo);
+      margin-bottom: 0.6rem;
+      letter-spacing: 0.04em;
+    }
+    .draw-email-invite p {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--indigo);
+      opacity: 0.72;
+      margin-bottom: 1.25rem;
+    }
+
+    /* Content reveal — hidden until email submitted */
+    #draw-content-reveal {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+    #draw-content-reveal.visible {
+      display: block;
+      opacity: 1;
+    }
+
+    /* Card content layout */
+    .draw-content-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .draw-content-divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 2.5rem 0;
+      color: var(--gold);
+    }
+    .draw-content-divider::before,
+    .draw-content-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(29,36,56,0.15);
+    }
+    .draw-content-divider span {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+    }
+
+    /* Passage */
+    .draw-passage {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: var(--indigo);
+    }
+    .draw-passage p {
+      margin-bottom: 1.25rem;
+    }
+    .draw-passage .passage-verse {
+      font-style: italic;
+      padding-left: 1rem;
+      border-left: 2px solid var(--gold);
+      margin-bottom: 1.25rem;
+      line-height: 2;
+    }
+
+    /* Section headers inside content */
+    .draw-section-label {
+      font-family: var(--font-sc);
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .draw-section-title {
+      font-family: var(--font-cinzel);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--indigo);
+      margin-bottom: 1rem;
+      letter-spacing: 0.04em;
+    }
+
+    /* Audio player */
+    .draw-audio-wrap {
+      background: rgba(29,36,56,0.05);
+      border: 1px solid rgba(29,36,56,0.12);
+      border-radius: 6px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .draw-audio-wrap audio {
+      width: 100%;
+      margin-top: 0.75rem;
+    }
+    .draw-audio-label {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 0.95rem;
+      color: var(--indigo);
+      opacity: 0.75;
+    }
+
+    /* Ritual */
+    .draw-ritual {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: var(--indigo);
+    }
+    .draw-ritual p {
+      margin-bottom: 1.25rem;
+    }
+
+    /* Upsell */
+    .draw-upsell {
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      border-top: 1px solid rgba(29,36,56,0.12);
+      margin-top: 2rem;
+    }
+    .draw-upsell p {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--indigo);
+      opacity: 0.8;
+      margin-bottom: 1.25rem;
+    }
+
+    /* Chosen card — larger for the reveal */
+    .chosen-card-flip {
+      width: 200px !important;
+      height: 286px !important;
+    }
   </style>
 </head>
 <body>
@@ -80,9 +258,10 @@
           <span class="hero-title-points">Points</span>
         </h1>
         <p class="hero-tagline">The wisdom already lives in you.<br>This is how you return to it.</p>
-        <p class="hero-sub">An immersive oracle deck system designed to be lived in the body — awakened by daily ritual, deepened by guided meditation, and held within a private community circle.</p>
-        <a href="#offer" class="btn btn-gold">Begin Your Practice — $165</a>
-        <p class="hero-launch-note">62 cards &nbsp;&nbsp;·&nbsp;&nbsp; hardcover guidebook &nbsp;&nbsp;·&nbsp;&nbsp; 62 guided meditations &nbsp;&nbsp;·&nbsp;&nbsp; private community circle &nbsp;&nbsp;·&nbsp;&nbsp; lifetime access</p>
+        <p class="hero-sub">An immersive oracle deck system designed to be lived —<br>awakened through daily ritual, deepened by guided meditation, and held within a private community circle.</p>
+        <a href="#offer" class="btn btn-gold">BEGIN YOUR PRACTICE</a>
+        <p class="hero-price-note" style="color:#c9a84c !important; font-size:0.85rem; letter-spacing:0.06em; margin-top:0.6rem; margin-bottom:0.4rem;">Launch Pricing &bull; $125 <span style="color:#c9a84c; opacity:0.4; font-size:0.75rem; font-weight:400;">(Regularly $165)</span></p>
+        <p class="hero-launch-note">62 Cards &nbsp;&bull;&nbsp; Hardcover Guidebook &nbsp;&bull;&nbsp; 62 Guided Meditations &nbsp;&bull;&nbsp; Private Community Circle</p>
       </div>
       <div class="hero-product reveal reveal-delay">
         <div class="hero-cards-stack">
@@ -105,7 +284,7 @@
       <div class="practice-v2-intro reveal">
         <p class="practice-eyebrow">A Living Practice</p>
         <h2 class="practice-title practice-v2-title" style="color:#ffffff !important; font-style:italic;">The Daily Practice</h2>
-        <p class="practice-v2-intro-text">Each card is a doorway — not just into wisdom, but into a living daily practice rooted in thousands of years of Taoist wisdom.</p>
+        <p class="practice-v2-intro-text">Each card is a doorway, not just into insight, but into a living practice of returning to yourself.</p>
       </div>
 
       <!-- Vertical steps -->
@@ -119,7 +298,7 @@
           <div class="practice-v2-text-col">
             <p class="practice-step-num">Step One</p>
             <h3 class="practice-step-title">Draw</h3>
-            <p class="practice-v2-body">Each morning — or whenever you feel the pull — you draw. The card that comes carries a name, illustrated artwork, and a passage written as if the acupuncture point itself is speaking directly to you.</p>
+            <p class="practice-v2-body">Each morning, or whenever you feel the pull, draw a card.<br>The card that comes carries the name of an acupuncture point, illustrated artwork, and a passage written as if the point itself is speaking directly to you.</p>
           </div>
         </div>
 
@@ -129,12 +308,12 @@
         <!-- Step 2 -->
         <div class="practice-v2-step reveal">
           <div class="practice-v2-icon-col">
-            <img src="assets/icon_ritual.png" alt="" class="practice-v2-icon" aria-hidden="true" />
+            <img src="assets/icon_meditation.png" alt="" class="practice-v2-icon" aria-hidden="true" />
           </div>
           <div class="practice-v2-text-col">
             <p class="practice-step-num">Step Two</p>
-            <h3 class="practice-step-title">Live the Ritual</h3>
-            <p class="practice-v2-body">Every card arrives with a grounding practice for your day — simple, embodied, real. A way of letting the wisdom settle into the texture of ordinary life.</p>
+            <h3 class="practice-step-title">Enter the Meditation</h3>
+            <p class="practice-v2-body">Scan the QR code and step into a private space where each point opens fully.<br>Guided meditations, breathwork, yin yoga, visualization, and more. Accessible immediately.</p>
           </div>
         </div>
 
@@ -144,12 +323,12 @@
         <!-- Step 3 -->
         <div class="practice-v2-step reveal">
           <div class="practice-v2-icon-col">
-            <img src="assets/icon_meditation.png" alt="" class="practice-v2-icon" aria-hidden="true" />
+            <img src="assets/icon_ritual.png" alt="" class="practice-v2-icon" aria-hidden="true" />
           </div>
           <div class="practice-v2-text-col">
             <p class="practice-step-num">Step Three</p>
-            <h3 class="practice-step-title">Enter the Meditation</h3>
-            <p class="practice-v2-body">Scan the QR code and step into a private digital space where the full depth of each point lives — guided meditation, breathwork, yin yoga, or visualization. Accessible immediately. Yours for life.</p>
+            <h3 class="practice-step-title">Live the Ritual</h3>
+            <p class="practice-v2-body">Every card arrives with a grounding practice for your day — simple, embodied, real. A way of letting the wisdom bring more meaning to ordinary life.</p>
           </div>
         </div>
 
@@ -164,7 +343,7 @@
           <div class="practice-v2-text-col">
             <p class="practice-step-num">Step Four</p>
             <h3 class="practice-step-title">Join the Circle</h3>
-            <p class="practice-v2-body">Inside the private community, you'll find others walking this path alongside you — sharing what surfaces, asking questions, going deeper. Suzanne shows up here regularly, too. This is a living practice, and it's more alive in community.</p>
+            <p class="practice-v2-body">Inside the private community, you'll find others walking this path alongside you, sharing what surfaces, asking questions, and going deeper. Join Suzanne for live Sunday Circle gatherings to pull a card, meditate together, and set intentions for the week ahead. This practice is powerful alone. It's even richer together.</p>
           </div>
         </div>
 
@@ -182,12 +361,13 @@
         <p class="section-eyebrow-muted">Why I Made This</p>
         <h2 class="section-title section-title-indigo">A Personal Offering</h2>
         <p>For more than twenty years, I have lived inside the questions that Taoism, yoga, and meditation ask of us. How do we stay open when life breaks us? How do we move with what is, rather than against it? How do we remain present to our own lives?</p>
-        <p>When I trained as an acupuncturist, I found that Chinese Medicine was asking the same questions — only it had mapped the answers into the body itself. Into a system of living intelligence that had been listening to what it means to be human for thousands of years.</p>
+        <p>When I trained as an acupuncturist, I found that Chinese medicine was asking the same questions, only its insights were mapped into the body itself. Into a living system that had been listening to what it means to be human for thousands of years.</p>
         <p>I began writing this deck while sitting beside my father as he was dying.</p>
-        <p>There were days when I didn't know how to be in that room and not fall apart completely. The grief would rise and I had nowhere to put it. I felt the particular helplessness of loving someone you cannot help.</p>
-        <p>During those weeks, certain acupuncture points kept coming to me — <em>Spirit Storehouse</em>, <em>Gate of Hope</em>, <em>Wail of Grief</em>. They became quiet companions — not answers, but presences. They showed me how to stay open when everything in me wanted to close. How to keep offering my heart even when it ached.</p>
-        <p>Point by point, I began to write my way through loss.</p>
-        <p>What started as a personal practice became this. The Spirit of the Points held me close to my own center when everything else was shifting. Now it is my heart's offering to you.</p>
+        <p>There were days when I didn't know how to be in that room and not fall apart completely. The grief would rise and I had nowhere to put it. I felt the helplessness of loving someone I could not help.</p>
+        <p>During those weeks, certain acupuncture points kept coming to me—Spirit Storehouse, Gate of Hope, Wail of Grief. They became quiet companions, not answers but presences. They showed me how to stay open when everything in me wanted to close.</p>
+        <p>Point by point, I wrote my way through loss.</p>
+        <p>What began as a personal practice became this.</p>
+        <p>The Spirit of the Points held me close to my own center when everything else was shifting. Now it is my heart's offering to you.</p>
         <div class="why-made-signature">
           <img src="assets/SuzanneSpiegel_headshot.webp" alt="Suzanne Spiegel" class="signature-portrait" />
           <p class="signature signature-indigo"><em>— Suzanne Spiegel, Author</em></p>
@@ -223,17 +403,18 @@
       <!-- Full-width editorial header -->
       <div class="different-a-header reveal">
         <p class="section-eyebrow-muted">What Makes This Different</p>
-        <h2 class="section-title section-title-indigo different-a-title">The Wisdom Moves Deeper<br>When the Mind Follows</h2>
+        <h2 class="section-title section-title-indigo different-a-title">The Card Opens the Door.<br>The Meditation Helps You Walk Through It.</h2>
       </div>
       <!-- Two-column body: text left, card right -->
       <div class="different-a-body">
         <div class="different-a-text reveal">
-          <p>Over the years in my practice I began to guide my patients into meditation while the needles rested in their points. Not a lecture about Chinese Medicine, not an explanation of what the points do — but a gentle, spacious invitation into the living quality — the spirit — of the treatment itself.</p>
-          <p>The result is a quality of change that goes deeper than needles alone. The meditation allows the mind to attune to the shift the body is already making. The needles open the door. The meditation helps you walk through it.</p>
-          <p>The Spirit of the Points system carries that same potency.</p>
-          <p>Each card activates a point — a quality of attention, an ancient intelligence, a particular way of meeting your life. The guided meditation that accompanies every card is designed to do what meditation does in my treatment room: help you drop in. To move from reading about the wisdom to actually feeling it move through you.</p>
-          <p class="different-taoist-quote different-taoist-quote-indigo"><em>Taoist wisdom was never meant to be studied. It was meant to be lived — in the body, in the breath, in the texture of ordinary days.</em></p>
-          <p>That’s what this system makes possible — not just for the people who can lie on my table, but for anyone ready to go deeper than a card alone can take them.</p>
+          <p>Over the years in my practice, I began guiding my patients into meditation while the needles rested in their points. Alongside everything we talked about, I offered a gentle, spacious invitation into the living quality, the spirit, of the treatment itself.</p>
+          <p>The result was a quality of change that went deeper than needles alone. The meditation helped my patients attune to the shift unfolding within them and experience the wisdom of the treatment more fully.</p>
+          <p>I built Spirit of the Points around that same discovery. Every card is paired with a guided meditation, not to explain the wisdom, but to help you experience it for yourself.</p>
+          <p>Each card invites you into a point: a quality of attention, an ancient intelligence, a different way of meeting your life.</p>
+          <p>The guided meditation that accompanies every card is designed to do what meditation did in my treatment room: help you drop in. To move from reading about the wisdom to actually feeling it move through you.</p>
+          <p class="different-taoist-quote"><em>Taoist wisdom was always meant to be lived. In the body. In the breath. In the texture of ordinary days.</em></p>
+          <p>That's what this system makes possible.<br>Not just for the people who can lie on my treatment table.<br>Now, for anyone.</p>
         </div>
         <div class="different-a-card reveal reveal-delay">
           <img src="assets/valiantwhite.png" alt="Valient White oracle card" class="different-card-img" />
@@ -249,7 +430,7 @@
     <div class="hero-stars" aria-hidden="true"></div>
     <div class="container testimonials-inner">
       <p class="section-eyebrow-gold reveal">What People Are Saying</p>
-      <h2 class="section-title section-title-sand reveal">Words from the Circle</h2>
+      <h2 class="section-title section-title-sand reveal">Stories from the Circle</h2>
 
       <div class="testimonials-grid reveal">
 
@@ -264,7 +445,7 @@
         <div class="testimonial-card">
           <div class="testimonial-stars">✦ ✦ ✦ ✦ ✦</div>
           <blockquote>
-            <p>&#8220;As an acupuncturist, I've studied these points for twenty years. Suzanne has done something I didn't think was possible — she's made me fall in love with them all over again. This deck lives on my treatment table.&#8221;</p>
+            <p>&#8220;As an acupuncturist, I've studied these points for twenty years. Suzanne has done something I didn't think was possible — she's made me fall in love with them all over again. This deck has a permanent place in my treatment room.&#8221;</p>
           </blockquote>
           <cite>— Dr. Lena K., licensed acupuncturist</cite>
         </div>
@@ -288,13 +469,13 @@
     <div class="container">
       <p class="section-eyebrow-muted reveal">See the Deck</p>
       <h2 class="section-title section-title-indigo reveal">Each Card Is a World</h2>
-      <p class="see-deck-intro see-deck-intro-indigo reveal">A name. An image. A passage written as if the point itself is speaking to you.<br/>And behind every card, a meditation waiting.</p>
+      <p class="see-deck-intro see-deck-intro-indigo reveal">A name. Original artwork. A passage written as if the point itself is speaking directly to you.<br/>Then a daily ritual and guided meditation that help its wisdom come alive in your life.</p>
 
       <!-- Card Gallery -->
       <div class="cards-gallery reveal" id="cards-gallery">
-        <div class="gallery-card" data-card="one-hundred-meetings" tabindex="0" role="button" aria-label="View One Hundred Meetings card">
-          <img src="assets/card_one_hundred_meetings.jpg" alt="One Hundred Meetings oracle card" />
-          <div class="gallery-card-overlay"><span>One Hundred Meetings</span></div>
+        <div class="gallery-card" data-card="amidst-elegance" tabindex="0" role="button" aria-label="View Amidst Elegance card">
+          <img src="assets/card_amidst_elegance.jpg" alt="Amidst Elegance oracle card" />
+          <div class="gallery-card-overlay"><span>Amidst Elegance</span></div>
         </div>
         <div class="gallery-card gallery-card-active" data-card="yin-valley" tabindex="0" role="button" aria-label="View Yin Valley card">
           <img src="assets/card_yin_valley.jpg" alt="Yin Valley oracle card" />
@@ -309,29 +490,31 @@
       <!-- Open Book Spread -->
       <div class="book-spread-wrap reveal" id="book-spread-wrap">
 
-        <!-- ONE HUNDRED MEETINGS spread -->
-        <div class="gb-spread" id="spread-one-hundred-meetings" style="display:none">
+        <!-- AMIDST ELEGANCE spread -->
+        <div class="gb-spread" id="spread-amidst-elegance" style="display:none">
           <div class="gb-page gb-page-left">
             <div class="gb-header">
-              <span class="gb-point-number">Governor Vessel · 20</span>
-              <h3 class="gb-title">One Hundred Meetings</h3>
-              <div class="gb-subtitle">Bai Hui</div>
+              <span class="gb-point-number">Kidney · 26 &nbsp;·&nbsp; Water</span>
+              <h3 class="gb-title">Amidst Elegance</h3>
+              <div class="gb-subtitle"></div>
               <div class="gb-title-rule"><div class="gb-diamond"></div></div>
             </div>
             <div class="gb-body">
-              <p>You are bigger than the chaos or challenge before you.</p>
-              <p>There is a vast intelligence, Tian Qi or Heavenly Qi, that moves through all things. It holds the potential of the cosmos, linking you to the rhythm of nature and the unfolding of life itself. The Governing Vessel, which travels along the spine and opens at the crown, is a celestial channel that receives this immense intelligence.</p>
-              <p>When you rise above the story of &ldquo;me,&rdquo; even for a breath, you tap into this current, and it changes everything.</p>
+              <p class="gb-verse">Before mirrors.<br/>Before roles.<br/>Before striving,<br/>you were already radiant.</p>
+              <p class="gb-verse">Not polished.<br/>Not perfected.<br/>Radiant with an unrepeatable aliveness and beauty that only you carry.</p>
+              <p>In Chinese Medicine, the Kidneys are the wellspring of your vitality. The essence you brought into this life. Potent. Inherent. Never asking permission. Unmistakably you.</p>
+              <p>But the world teaches performance. It teaches you to behave. To be nice. Predictable. Pliable. Pretty. To smooth out your wildness. To flatten your instincts. To cut away the parts of you that don&rsquo;t fit the mold.</p>
+              <p>And when you contort to belong, your spirit contracts too.</p>
               <div class="gb-pull-insight">
-                Consider the scale of your existence. You are a speck on a planet spinning at sixty-seven thousand miles per hour, orbiting a star, shooting through the Milky Way, hurtling through an endless sea of galaxies. And yet, here you are, breathing, alive, precisely where you are meant to be.
+                You are not here to be pleasing. You are here to embody zest. You are here to be real.<br/><br/>Streaked by sun. Hair tousled by wind. Too alive to be contained.
               </div>
-              <p>From this height, fixation begins to loosen. Petty fears and daily frustrations shrink against the backdrop of eternity. You are not small. You are the universe expressing itself in human form, and that intelligence moves through everything you touch.</p>
-              <p>This is not a call to abandon the human world. It is an invitation to hold it all &mdash; the intimate and the vast, the dishes and the stars &mdash; with reverence. They are not separate.</p>
-              <p>When you widen into this view, the mind loosens, the heart opens, and wisdom rushes in. What once felt like pressure becomes presence.</p>
-              <p>Tian Qi has always been here, flowing through you, waiting for you to notice. Lift your gaze. Breathe it in. Let the vastness steady you.</p>
+              <p>In Taoism, this is <em>Ziran</em>: naturalness. A tree doesn&rsquo;t apologize for its crooked branches. A river doesn&rsquo;t rehearse its course. Each radiates a beauty that cannot be manufactured.</p>
+              <p>So do you, when you stop performing and start simply being.</p>
+              <p class="gb-verse">Let your true nature move through you spontaneously, unrehearsed.<br/>Wild soul, your beauty lives in your rawness.<br/>Your rhythm. Your truth.</p>
+              <p>You are most radiant when you are most yourself.</p>
             </div>
             <div class="gb-page-footer">
-              <span class="gb-page-num">52</span>
+              <span class="gb-page-num">44</span>
             </div>
           </div>
           <div class="gb-spine" aria-hidden="true"></div>
@@ -339,12 +522,13 @@
             <div class="gb-section-divider"><span class="gb-divider-sym">✦</span></div>
             <div class="gb-practice-header">Daily Ritual</div>
             <div class="gb-practice-block">
-              <div class="gb-practice-title">Remembering the Big Picture</div>
+              <div class="gb-practice-title">Being Unpolished</div>
               <div class="gb-practice-text">
-                <p>When stress or small worries take hold, pause. Put down your phone, step outside, and look up. Notice the sky, its color, its movement, its scale. Let it draw your awareness higher. Feel the space above you, around you, and within you.</p>
-                <p>Breathe it in. Then take a minute to envision yourself exactly where you are: in this place, in this moment, on this spinning planet, orbiting a star, moving through the Milky Way, carried within an endless sea of galaxies.</p>
+                <p>Today, choose to show up oriented toward what feels right and true to you. Wear something that feels good on your body, not something chosen to impress or disappear. Move at your natural pace. Let your voice sound like your own, without softening or performing.</p>
+                <p>As you move through the day, notice when the impulse to perform arises &mdash; overexplaining, smoothing your words, rushing to be agreeable, or presenting a version of yourself that feels safer than true. When you notice it, pause. Take one breath. Ask yourself what feels honest to say or do, from your body, not from habit.</p>
+                <p>You do not need to correct yourself into being acceptable. You can be kind and tactful without abandoning what is true. Give yourself permission to not be liked by everyone.</p>
                 <div class="gb-journal-prompt">
-                  Let this vast perspective become the context for your day. Carry it with you.
+                  At the end of the day, reflect briefly: Where did you stop adjusting? What changed when you allowed yourself to be seen as you are?
                 </div>
               </div>
             </div>
@@ -352,10 +536,10 @@
             <div class="gb-practice-header">Guided Meditation</div>
             <div class="gb-meditation-block">
               <div class="gb-qr-placeholder" aria-label="QR code placeholder"></div>
-              <p class="gb-scan-note"><em>Scan to listen to the guided meditation<br/>for One Hundred Meetings</em></p>
+              <p class="gb-scan-note"><em>Scan to listen to the guided meditation<br/>for Amidst Elegance</em></p>
             </div>
             <div class="gb-page-footer">
-              <span class="gb-page-num">53</span>
+              <span class="gb-page-num">45</span>
             </div>
           </div>
         </div>
@@ -487,35 +671,35 @@
           <span class="inside-num">1</span>
           <div class="inside-content">
             <h3 class="inside-title">The Deck</h3>
-            <p class="inside-desc">62 original illustrated cards, each bearing the poetic name and spirit of an acupuncture point. Artwork by Tarn Ellis, printed on thick archival stock designed for daily practice.</p>
+            <p class="inside-desc">62 original illustrated cards, each carrying the poetic name and living quality of an acupuncture point. Printed on thick archival stock and created to become part of your daily life.</p>
           </div>
         </li>
         <li class="inside-item">
           <span class="inside-num">2</span>
           <div class="inside-content">
             <h3 class="inside-title">The Guidebook</h3>
-            <p class="inside-desc">A hardcover companion volume, 5.1 × 7.9". Written to be read slowly, returned to, and lived with — not just referenced once.</p>
+            <p class="inside-desc">A beautifully bound hardcover companion, written to be read slowly, returned to often, and lived with. Not simply referenced once.</p>
           </div>
         </li>
         <li class="inside-item">
           <span class="inside-num">3</span>
           <div class="inside-content">
             <h3 class="inside-title">62 Guided Meditations</h3>
-            <p class="inside-desc">Each card connects to an audio practice — meditation, yin yoga, breathwork, or visualization. Accessible immediately via QR code. Lifetime access included.</p>
+            <p class="inside-desc">Each card opens into a private audio practice—guided meditation, yin yoga, breathwork, visualization, and more. Accessible instantly through a QR code.</p>
           </div>
         </li>
         <li class="inside-item">
           <span class="inside-num">4</span>
           <div class="inside-content">
             <h3 class="inside-title">62 Grounding Rituals</h3>
-            <p class="inside-desc">Simple daily practices to bring the living wisdom of each point into your body and your ordinary life.</p>
+            <p class="inside-desc">Simple daily practices that help bring the wisdom of each point out of the guidebook and into the way you live.</p>
           </div>
         </li>
         <li class="inside-item">
           <span class="inside-num">5</span>
           <div class="inside-content">
             <h3 class="inside-title">Private Community Circle</h3>
-            <p class="inside-desc">A space to share what surfaces and walk this path alongside others. What begins as a personal practice becomes something shared.</p>
+            <p class="inside-desc">Practice alongside others walking this path. A place to reflect, connect, and let the wisdom continue unfolding in everyday life.</p>
           </div>
         </li>
       </ol>
@@ -536,12 +720,13 @@
       <p class="section-eyebrow-muted reveal">Who This Is For</p>
       <h2 class="section-title section-title-indigo reveal">You May Recognize Yourself Here</h2>
       <ul class="who-for-list reveal">
-        <li>Those who feel the quiet pull to come home to the life that is truly theirs.</li>
-        <li>Those moving through grief, transition, or a longing they can feel but cannot quite name.</li>
-        <li>Acupuncturists who want to reconnect with the living spirit of the medicine they love.</li>
-        <li>Acupuncture patients who feel the mystery of this medicine in their own bodies and want to deepen their relationship with it.</li>
-        <li>Practitioners of yoga, meditation, and embodied traditions who want their inner work rooted in something ancient and true.</li>
-        <li>Anyone ready to return to their true nature and follow the deeper charter of the heart.</li>
+        <li>You've tasted a deeper way of living and want to stay closer to it.</li>
+        <li>You long for a life that feels more alive, more meaningful, and more fully your own.</li>
+        <li>You're moving through grief, transition, uncertainty, or a longing you can feel but can't quite name.</li>
+        <li>Your life is full, and you're looking for practices that help you return to what matters without becoming another thing to keep up with.</li>
+        <li>You're tired of treating yourself like a project to fix and long for a more compassionate, embodied way of meeting yourself.</li>
+        <li>You practice yoga, meditation, acupuncture, or another embodied tradition and want your inner work rooted in an ancient understanding of body, emotion, nature, and spirit.</li>
+        <li>You're longing for honest community where you can stop performing, be met as you are, and walk alongside others who value depth, presence, and a more meaningful way of living.</li>
       </ul>
       <div class="gold-divider reveal" aria-hidden="true">
         <img src="assets/logo_ornament_clean.png" alt="" />
@@ -551,12 +736,18 @@
 
   <!-- ═══════════════════════════════════════════════════════
        11. DRAW A CARD — Soft Sand
+       NEW FLOW:
+         Step 1 — Fan spread (face-down)
+         Step 2 — Card flips immediately (free), name shown,
+                   email invite appears below
+         Step 3 — On submit: content reveals immediately
+                   (optimistic), ConvertKit fires async
   ═══════════════════════════════════════════════════════ -->
   <section class="section section-sand draw-section" id="draw-card">
     <div class="container container-narrow draw-header">
       <p class="section-eyebrow-muted reveal">Draw a Card</p>
       <h2 class="section-title section-title-indigo reveal">Sometimes the Point You Need Finds You Before You Know to Look for It</h2>
-      <p class="draw-intro reveal">Enter your email and draw a card from the deck. You'll receive the guidebook passage, the meditation, and the practice connected to that point. A small glimpse into the living wisdom of the acupuncture points.</p>
+      <p class="draw-intro reveal">Draw a card and receive its guidebook passage, guided meditation, and daily ritual. A simple way to experience Spirit of the Points for yourself.</p>
     </div>
 
     <!-- STEP 1: Fanned Arc Card Draw -->
@@ -567,10 +758,12 @@
       </div>
     </div>
 
-    <!-- STEP 2: Chosen card + email form -->
+    <!-- STEP 2: Card flips immediately, email invite below -->
     <div id="draw-step-2" class="draw-step" style="display:none; opacity:0;">
       <div class="container container-narrow">
-        <div class="chosen-card-scene" id="chosen-card-scene">
+
+        <!-- Flip scene: card + name visible immediately -->
+        <div class="draw-flip-scene">
           <div class="chosen-card-flip" id="chosen-card-flip">
             <div class="chosen-card-inner" id="chosen-card-inner">
               <div class="chosen-card-face chosen-card-face-back">
@@ -581,32 +774,60 @@
               </div>
             </div>
           </div>
+          <p class="draw-card-name" id="chosen-card-name"></p>
+          <p class="draw-card-subtitle" id="chosen-card-subtitle"></p>
         </div>
-        <div class="draw-email-block" id="draw-email-block">
-          <h3 class="draw-form-heading">Your card has been drawn.</h3>
-          <p class="draw-form-sub"><em>Enter your email to receive its passage, its meditation, and its practice.</em></p>
+
+        <!-- Email invite — appears after flip, below the card -->
+        <div class="draw-email-invite" id="draw-email-invite" style="display:none; opacity:0;">
+          <h3>Enter your email to receive the passage, meditation, and ritual for this point.</h3>
+          <p><em>No pressure, no commitment. Just a moment of guidance.</em></p>
           <form class="draw-form" id="draw-form" onsubmit="handleDrawSubmit(event)">
             <div class="draw-input-row">
               <input type="email" id="draw-email" placeholder="Your email address" required class="draw-input" />
-              <button type="submit" class="btn btn-gold">Send My Card</button>
+              <button type="submit" class="btn btn-gold">Reveal</button>
             </div>
-            <p class="draw-privacy"><em>No pressure, no commitment. Just a moment of guidance.</em></p>
           </form>
         </div>
+
+        <!-- Content reveal — shown immediately on submit -->
+        <div id="draw-content-reveal">
+          <div class="draw-content-inner">
+
+            <!-- Passage -->
+            <div class="draw-content-divider"><span>✦</span></div>
+            <span class="draw-section-label">Guidebook Passage</span>
+            <div class="draw-passage" id="draw-passage-text"></div>
+
+            <!-- Meditation -->
+            <div class="draw-content-divider"><span>✦</span></div>
+            <span class="draw-section-label">Guided Meditation</span>
+            <div class="draw-audio-wrap">
+              <p class="draw-audio-label" id="draw-audio-label"></p>
+              <audio id="draw-audio-player" controls preload="none">
+                <source id="draw-audio-source" src="" type="audio/mpeg" />
+                Your browser does not support the audio element.
+              </audio>
+            </div>
+
+            <!-- Ritual -->
+            <div class="draw-content-divider"><span>✦</span></div>
+            <span class="draw-section-label">Daily Ritual</span>
+            <p class="draw-section-title" id="draw-ritual-title"></p>
+            <div class="draw-ritual" id="draw-ritual-text"></div>
+
+            <!-- Upsell -->
+            <div class="draw-upsell">
+              <p>Each of the 62 cards in Spirit of the Points carries its own passage, guided meditation, and daily ritual — a complete living practice rooted in ancient Chinese medicine.</p>
+              <a href="#offer" class="btn btn-gold">Explore the Full Deck — $125</a>
+            </div>
+
+          </div>
+        </div>
+
       </div>
     </div>
 
-    <!-- STEP 3: Confirmation -->
-    <div id="draw-step-3" class="draw-step" style="display:none; opacity:0;">
-      <div class="container container-narrow draw-confirm">
-        <div class="confirm-card-wrap">
-          <img id="confirm-card-img" src="" alt="Your card" class="confirm-card-img" />
-        </div>
-        <p class="confirm-heading">Your card is on its way.</p>
-        <p class="confirm-sub">Check your inbox — the passage, guided meditation, and daily practice are waiting for you.</p>
-        <a href="#offer" class="btn btn-gold">Explore the Full Deck — $125</a>
-      </div>
-    </div>
   </section>
 
   <!-- ═══════════════════════════════════════════════════════
@@ -620,22 +841,20 @@
         </div>
       </div>
       <div class="offer-text-col reveal reveal-delay">
-        <p class="section-eyebrow-gold">Limited Time Offer</p>
         <h2 class="section-title section-title-sand">Begin Your Practice</h2>
-        <div class="offer-price">
-          <span class="price-original">$165</span>
+        <div class="offer-price offer-price-clean">
           <span class="price-current">$125</span>
         </div>
-        <p class="offer-sub">Launch pricing — available for a limited time.</p>
+        <p class="offer-sub">Launch pricing &bull; Regularly $165</p>
+        <p class="offer-tagline" style="color:#f3e9d8 !important; font-style:italic; font-size:1rem;">Everything you need to return to yourself, one card at a time.</p>
         <div class="offer-includes">
-          <div class="offer-item"><span class="offer-check">✦</span> 62 illustrated oracle cards</div>
+          <div class="offer-item"><span class="offer-check">✦</span> 62 original illustrated oracle cards</div>
           <div class="offer-item"><span class="offer-check">✦</span> Hardcover guidebook</div>
-          <div class="offer-item"><span class="offer-check">✦</span> 62 guided meditations (lifetime access)</div>
-          <div class="offer-item"><span class="offer-check">✦</span> 62 daily rituals and practices</div>
+          <div class="offer-item"><span class="offer-check">✦</span> 62 guided meditations</div>
+          <div class="offer-item"><span class="offer-check">✦</span> 62 grounding rituals</div>
           <div class="offer-item"><span class="offer-check">✦</span> Private community circle</div>
         </div>
-        <a href="#" class="btn btn-gold btn-large">BEGIN YOUR PRACTICE — $125</a>
-        <p class="offer-shipping">Meditations accessible immediately via QR code</p>
+        <a href="#" class="btn btn-gold btn-large btn-cta-tall">BEGIN YOUR PRACTICE</a>
       </div>
     </div>
   </section>
@@ -660,9 +879,9 @@
 
     const cards = gallery.querySelectorAll('.gallery-card');
     const spreads = {
-      'one-hundred-meetings': document.getElementById('spread-one-hundred-meetings'),
-      'yin-valley':           document.getElementById('spread-yin-valley'),
-      'through-the-valley':   document.getElementById('spread-through-the-valley')
+      'amidst-elegance':    document.getElementById('spread-amidst-elegance'),
+      'yin-valley':         document.getElementById('spread-yin-valley'),
+      'through-the-valley': document.getElementById('spread-through-the-valley')
     };
 
     gallery.classList.add('has-active');
@@ -702,10 +921,8 @@
       var rect = sectionEl.getBoundingClientRect();
       var sectionH = sectionEl.offsetHeight;
       var vh = window.innerHeight;
-      // progress: 0 when section top hits viewport bottom, 1 when section bottom hits viewport top
       var progress = 1 - (rect.bottom / (sectionH + vh));
       progress = Math.max(0, Math.min(1, progress));
-      // drift: starts at -20px (slightly above center), ends at +20px (slightly below)
       var drift = (progress - 0.5) * 40;
       stickyEl.style.transform = 'translateY(' + drift + 'px)';
     }

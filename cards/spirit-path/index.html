@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spirit Path · Heart 4 · Spirit of the Points</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Cormorant+SC:wght@300;400;500&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Design tokens (matches main site) ── */
+    :root {
+      --indigo: #1D2438;
+      --indigo-dark: #161c2d;
+      --sand: #F3E9D8;
+      --sand-dark: #e8d9c0;
+      --stone: #6F8798;
+      --gold: #C7A25A;
+      --gold-light: #d4b47a;
+      --muted-sand: #8a7d6a;
+      --font-serif: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+      --font-sc: 'Cormorant SC', 'Cormorant Garamond', Georgia, serif;
+      --font-cinzel: 'Cinzel', Georgia, serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      line-height: 1.8;
+      color: var(--indigo);
+      background: var(--sand);
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; height: auto; }
+    a { text-decoration: none; }
+    p { margin-bottom: 1.4rem; }
+    p:last-child { margin-bottom: 0; }
+
+    /* ── Nav ── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--indigo);
+      border-bottom: 1px solid rgba(199,162,90,0.2);
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.9rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo-title {
+      font-family: var(--font-sc);
+      font-size: 0.85rem;
+      letter-spacing: 0.18em;
+      color: var(--sand);
+      text-transform: uppercase;
+    }
+    .nav-cta {
+      font-family: var(--font-sc);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      color: var(--gold);
+      border: 1px solid rgba(199,162,90,0.5);
+      padding: 0.45rem 1rem;
+      border-radius: 2px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .nav-cta:hover {
+      background: var(--gold);
+      color: var(--indigo);
+    }
+
+    /* ── Hero: card image + title ── */
+    .card-hero {
+      background: var(--indigo);
+      position: relative;
+      overflow: hidden;
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+    }
+    .card-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(199,162,90,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .card-hero-inner {
+      max-width: 480px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .card-img-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .card-img {
+      width: 240px;
+      border-radius: 8px;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.6), 0 0 40px rgba(199,162,90,0.12);
+    }
+    .card-eyebrow {
+      font-family: var(--font-sc);
+      font-size: 0.78rem;
+      letter-spacing: 0.22em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+      display: block;
+    }
+    .card-title {
+      font-family: var(--font-cinzel);
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--sand);
+      line-height: 1.15;
+      margin-bottom: 0.5rem;
+    }
+    .card-subtitle {
+      font-family: var(--font-sc);
+      font-size: 0.82rem;
+      letter-spacing: 0.18em;
+      color: rgba(243,233,216,0.55);
+    }
+
+    /* ── Gold rule ── */
+    .gold-rule {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 3rem 0;
+      color: var(--gold);
+    }
+    .gold-rule::before,
+    .gold-rule::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(199,162,90,0.35);
+    }
+    .gold-rule span {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+    }
+
+    /* ── Content sections ── */
+    .card-content {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 4rem 2rem 5rem;
+    }
+
+    .section-label {
+      font-family: var(--font-sc);
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      color: var(--gold);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    /* Passage */
+    .passage {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: var(--indigo);
+    }
+    .passage p { margin-bottom: 1.25rem; }
+    .passage .verse {
+      font-style: italic;
+      padding-left: 1rem;
+      border-left: 2px solid var(--gold);
+      margin-bottom: 1.25rem;
+      line-height: 2;
+    }
+
+    /* Audio */
+    .audio-block {
+      background: rgba(29,36,56,0.06);
+      border: 1px solid rgba(29,36,56,0.14);
+      border-radius: 6px;
+      padding: 1.75rem;
+      text-align: center;
+    }
+    .audio-block p {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 0.95rem;
+      color: var(--indigo);
+      opacity: 0.72;
+      margin-bottom: 1rem;
+    }
+    .audio-block audio {
+      width: 100%;
+    }
+
+    /* Ritual */
+    .ritual-title {
+      font-family: var(--font-cinzel);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--indigo);
+      letter-spacing: 0.04em;
+      margin-bottom: 1.25rem;
+    }
+    .ritual {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: var(--indigo);
+    }
+    .ritual p { margin-bottom: 1.25rem; }
+
+    /* Upsell */
+    .upsell {
+      background: var(--indigo);
+      padding: 4rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .upsell::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(199,162,90,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .upsell-inner {
+      max-width: 560px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .upsell-eyebrow {
+      font-family: var(--font-sc);
+      font-size: 0.78rem;
+      letter-spacing: 0.22em;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 1rem;
+    }
+    .upsell h2 {
+      font-family: var(--font-cinzel);
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 600;
+      color: var(--sand);
+      line-height: 1.25;
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.04em;
+    }
+    .upsell p {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1rem;
+      color: rgba(243,233,216,0.75);
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+    .btn-gold {
+      display: inline-block;
+      font-family: var(--font-sc);
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      color: var(--indigo);
+      background: var(--gold);
+      border: none;
+      padding: 0.9rem 2.2rem;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      text-transform: uppercase;
+    }
+    .btn-gold:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+    }
+    .upsell-price {
+      font-family: var(--font-sc);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      color: rgba(199,162,90,0.6);
+      margin-top: 1rem;
+      display: block;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--indigo-dark);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      border-top: 1px solid rgba(199,162,90,0.12);
+    }
+    .footer p {
+      font-family: var(--font-sc);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      color: rgba(243,233,216,0.35);
+      margin-bottom: 0.25rem;
+    }
+
+    /* Mobile */
+    @media (max-width: 600px) {
+      .card-img { width: 180px; }
+      .card-content { padding: 3rem 1.25rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="../../" class="nav-logo-title">Spirit of the Points</a>
+      <a href="../../#offer" class="nav-cta">Begin Your Practice</a>
+    </div>
+  </nav>
+
+  <!-- Card Hero -->
+  <section class="card-hero">
+    <div class="card-hero-inner">
+      <div class="card-img-wrap">
+        <img
+          src="../../assets/card_spirit_path.jpg"
+          alt="Spirit Path oracle card illustration"
+          class="card-img"
+        />
+      </div>
+      <span class="card-eyebrow">Heart · 4 &nbsp;·&nbsp; Fire</span>
+      <h1 class="card-title">Spirit Path</h1>
+      <p class="card-subtitle">Spirit of the Points</p>
+    </div>
+  </section>
+
+  <!-- Card Content -->
+  <div class="card-content">
+
+    <!-- Passage -->
+    <span class="section-label">Guidebook Passage</span>
+    <div class="passage">
+      <p class="verse">
+        Let your heart tug you toward what makes your nature sing.<br>
+        Just as the oak lives inside the acorn,<br>
+        your path lives inside you.
+      </p>
+      <p>It is not charted in maps or laid out by others. It pulses in the thrum of your chest, louder than fear, more vital than doubt.</p>
+      <p>Your heart knows the way. You only need to make space to hear it.</p>
+      <p>When you pause and turn inward, you are not searching for your path. You are remembering it.</p>
+      <p>In Taoism and Chinese medicine, the Heart is more than an organ. It is the home of Shen, your spirit. A vessel through which the Tao expresses itself.</p>
+      <p>When the Heart is clear and open, it becomes a compass, guiding you toward what resonates with your nature and aligning your action with the flow.</p>
+      <p>Clarity does not come from chasing or proving. It comes from returning. To stillness. To truth. To the quiet authority of your own knowing.</p>
+      <p>The artists, visionaries, and seekers we revere did not force their brilliance into being. They made space for it. They listened. They followed what felt true.</p>
+      <p>Your heart is the instrument through which the universe guides you, moment by moment. When you align with it, you become a tuning fork for the Tao.</p>
+      <p>The way this boundless energy moves through you is your destiny. Your spirit path.</p>
+      <p class="verse">
+        Your heart is not lost.<br>
+        It has never been lost.<br>
+        Listen,<br>
+        and you will know the way.
+      </p>
+    </div>
+
+    <!-- Meditation -->
+    <div class="gold-rule"><span>✦</span></div>
+    <span class="section-label">Guided Meditation</span>
+    <div class="audio-block">
+      <p>Listen to the guided meditation for Spirit Path</p>
+      <audio controls preload="none">
+        <source src="../../assets/spirit_path_meditation.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+
+    <!-- Ritual -->
+    <div class="gold-rule"><span>✦</span></div>
+    <span class="section-label">Daily Ritual</span>
+    <p class="ritual-title">Reflect and Journal on Your Nature</p>
+    <div class="ritual">
+      <p>In your journal, explore the deepest impulses of your nature. Ask yourself what truly matters to you beneath roles, achievements, and expectations. Imagine looking back at your life from its final chapter. What would you hope to be remembered for? What words would make you feel proud if they were spoken about you?</p>
+      <p>Then bring this reflection into the present. Ask yourself what one simple, tangible action could express this deeper impulse in your life today.</p>
+      <p>Carry these answers with you. Let them inform how you move, speak, and show up. Not as pressure, but as an inner compass pointing you toward what feels honest, resonant, and alive.</p>
+    </div>
+
+  </div>
+
+  <!-- Upsell -->
+  <section class="upsell">
+    <div class="upsell-inner">
+      <span class="upsell-eyebrow">The Full Practice</span>
+      <h2>62 Cards. 62 Meditations. 62 Rituals.</h2>
+      <p>Each of the 62 cards in Spirit of the Points carries its own passage, guided meditation, and daily ritual — a complete living practice rooted in ancient Chinese medicine, designed to be lived one card at a time.</p>
+      <a href="../../#offer" class="btn-gold">Begin Your Practice — $125</a>
+      <span class="upsell-price">Launch pricing &bull; Regularly $165</span>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>Spirit of the Points &nbsp;&bull;&nbsp; A Living Practice</p>
+    <p>&copy; 2026 Suzanne Spiegel. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
