@@ -2,6 +2,15 @@
   functions = "netlify/functions"
   publish = "."
 
+[functions]
+  included_files = ["netlify/functions/**"]
+
+[[headers]]
+  for = "/.netlify/functions/*"
+  [headers.values]
+    Cache-Control = "no-store, no-cache, must-revalidate, private"
+    Netlify-CDN-Cache-Control = "no-store"
+
 [[headers]]
   for = "/*"
   [headers.values]
