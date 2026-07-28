@@ -226,6 +226,25 @@
       margin-bottom: 0.5rem;
     }
 
+    /* Section label row — label + reading time inline */
+    .section-label-row {
+      display: flex;
+      align-items: baseline;
+      gap: 0.85rem;
+      margin-bottom: 0.5rem;
+    }
+    .section-label-row .section-label {
+      margin-bottom: 0;
+    }
+    .read-time {
+      font-family: var(--font-sc);
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      color: var(--muted-sand);
+      opacity: 0.6;
+      white-space: nowrap;
+    }
+
     /* Content dividers */
     .content-rule {
       display: flex;
@@ -550,7 +569,10 @@
 
       <!-- Passage -->
       <div style="padding-top: 2.5rem;"></div>
-      <span class="section-label reveal">Guidebook Passage</span>
+      <div class="section-label-row reveal">
+        <span class="section-label">Guidebook Passage</span>
+        <span class="read-time">2 min read</span>
+      </div>
       <div class="passage reveal">
         <p class="verse">
           Let your heart tug you toward what makes your nature sing.<br>
