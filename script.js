@@ -18,6 +18,7 @@ const SPIRIT_PATH = {
   subtitle: "Heart · 4 &nbsp;·&nbsp; Fire",
   image: "assets/card_spirit_path.jpg",
   cardLink: "https://spiritofthepoints.com/draw/spirit-path",
+  revealUrl: "draw/spirit-path/reveal/",
   audio: "assets/spirit_path_meditation.mp3",
   audioLabel: "Guided Meditation · Spirit Path, Heart 4",
   ritualTitle: "Reflect and Journal on Your Nature",
@@ -200,11 +201,11 @@ function handleDrawSubmit(event) {
 
   const card = cards[selectedCardIndex];
 
-  // ── 1. Reveal content immediately ──
-  revealCardContent(card);
-
-  // ── 2. Fire ConvertKit async (non-blocking) ──
+  // ── 1. Fire ConvertKit async (non-blocking) ──
   submitToConvertKit(email, card.name, card.cardLink);
+
+  // ── 2. Navigate to the reveal page immediately ──
+  window.location.href = card.revealUrl;
 }
 
 function revealCardContent(card) {

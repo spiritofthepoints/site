@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spirit Path · Your Card — Spirit of the Points</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Cormorant+SC:wght@300;400;500&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --indigo: #1D2438;
+      --indigo-dark: #161c2d;
+      --sand: #F3E9D8;
+      --sand-dark: #e8d9c0;
+      --gold: #C7A25A;
+      --gold-light: #d4b47a;
+      --muted-sand: #8a7d6a;
+      --font-serif: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+      --font-sc: 'Cormorant SC', 'Cormorant Garamond', Georgia, serif;
+      --font-cinzel: 'Cinzel', Georgia, serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      line-height: 1.8;
+      color: var(--indigo);
+      background: var(--sand);
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; height: auto; }
+    a { text-decoration: none; }
+    p { margin-bottom: 1.4rem; }
+    p:last-child { margin-bottom: 0; }
+
+    /* ── Nav ── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--indigo);
+      border-bottom: 1px solid rgba(199,162,90,0.18);
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.9rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo-title {
+      font-family: var(--font-sc);
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      color: var(--sand);
+      opacity: 0.85;
+    }
+    .nav-cta {
+      font-family: var(--font-sc);
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      color: var(--gold);
+      border: 1px solid rgba(199,162,90,0.4);
+      padding: 0.45rem 1rem;
+      border-radius: 2px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .nav-cta:hover {
+      background: var(--gold);
+      color: var(--indigo);
+    }
+
+    /* ── Compact card header ── */
+    .card-header {
+      background: var(--sand);
+      padding: 3.5rem 2rem 0;
+      text-align: center;
+    }
+    .card-header-inner {
+      max-width: 54ch;
+      margin: 0 auto;
+    }
+    .card-name-small {
+      font-family: var(--font-sc);
+      font-size: 0.72rem;
+      letter-spacing: 0.28em;
+      color: var(--muted-sand);
+      opacity: 0.75;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+    .card-title-compact {
+      font-family: var(--font-cinzel);
+      font-size: clamp(1.4rem, 3vw, 1.9rem);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--indigo);
+      line-height: 1.2;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── Main content ── */
+    .content {
+      padding: 0 2rem 5rem;
+    }
+    .content-inner {
+      max-width: 54ch;
+      margin: 0 auto;
+    }
+
+    /* Section label row */
+    .section-label-row {
+      display: flex;
+      align-items: baseline;
+      gap: 0.85rem;
+      margin-bottom: 0.75rem;
+    }
+    .section-label {
+      font-family: var(--font-sc);
+      font-size: 0.7rem;
+      letter-spacing: 0.28em;
+      color: var(--muted-sand);
+      text-transform: uppercase;
+    }
+    .read-time {
+      font-family: var(--font-sc);
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      color: var(--muted-sand);
+      opacity: 0.6;
+      white-space: nowrap;
+    }
+
+    /* Passage */
+    .passage {
+      font-family: var(--font-serif);
+      font-size: 1.08rem;
+      line-height: 1.95;
+      color: var(--indigo);
+    }
+    .passage p { margin-bottom: 1.3rem; }
+    .passage .verse {
+      font-style: italic;
+      padding-left: 1.25rem;
+      border-left: 2px solid var(--gold);
+      margin: 1.5rem 0;
+      line-height: 2.1;
+      color: rgba(29,36,56,0.82);
+    }
+    .passage .pull {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.15rem;
+      line-height: 1.75;
+      color: var(--indigo);
+      border-top: 1px solid rgba(199,162,90,0.3);
+      border-bottom: 1px solid rgba(199,162,90,0.3);
+      padding: 1.5rem 0;
+      margin: 2rem 0;
+      text-align: center;
+    }
+
+    /* Drop cap */
+    .passage p.first-para::first-letter {
+      font-family: var(--font-cinzel);
+      font-size: 4.2em;
+      font-weight: 600;
+      line-height: 0.78;
+      float: left;
+      margin-right: 0.1em;
+      margin-top: 0.08em;
+      color: var(--indigo);
+      letter-spacing: -0.01em;
+    }
+
+    /* Content rule */
+    .content-rule {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 3rem 0;
+    }
+    .content-rule::before,
+    .content-rule::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(29,36,56,0.12);
+    }
+    .content-rule span {
+      font-size: 0.6rem;
+      color: var(--gold);
+      letter-spacing: 0.2em;
+    }
+
+    /* Soft bridge text between passage and meditation */
+    .bridge-text {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 0.9rem;
+      color: var(--indigo);
+      opacity: 0.55;
+      line-height: 1.7;
+      margin-bottom: 1.75rem;
+      text-align: center;
+    }
+
+    /* Compact meditation player */
+    .meditation-block {
+      border: 1px solid rgba(29,36,56,0.12);
+      border-radius: 6px;
+      padding: 1.5rem 1.75rem;
+      background: rgba(29,36,56,0.03);
+    }
+    .meditation-meta {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-bottom: 0.9rem;
+    }
+    .meditation-label {
+      font-family: var(--font-sc);
+      font-size: 0.7rem;
+      letter-spacing: 0.28em;
+      color: var(--muted-sand);
+      text-transform: uppercase;
+    }
+    .meditation-duration {
+      font-family: var(--font-sc);
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      color: var(--muted-sand);
+      opacity: 0.6;
+    }
+    .meditation-block audio {
+      width: 100%;
+      border-radius: 3px;
+    }
+
+    /* Upsell */
+    .upsell {
+      margin-top: 3rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(29,36,56,0.1);
+      text-align: center;
+    }
+    .upsell p {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 0.95rem;
+      color: var(--indigo);
+      opacity: 0.65;
+      line-height: 1.8;
+      margin-bottom: 1.25rem;
+    }
+    .btn-gold {
+      display: inline-block;
+      font-family: var(--font-sc);
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      color: var(--indigo);
+      background: var(--gold);
+      padding: 0.85rem 2rem;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-gold:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--indigo);
+      padding: 2rem 2rem;
+      text-align: center;
+      border-top: 1px solid rgba(199,162,90,0.1);
+    }
+    .footer p {
+      font-family: var(--font-sc);
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      color: rgba(243,233,216,0.25);
+      margin-bottom: 0.25rem;
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay { transition-delay: 0.12s; }
+    .reveal-delay-2 { transition-delay: 0.24s; }
+
+    @media (max-width: 600px) {
+      .content { padding: 0 1.25rem 4rem; }
+      .card-header { padding: 2.5rem 1.25rem 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="../../../" class="nav-logo-title">Spirit of the Points</a>
+      <a href="../../../#offer" class="nav-cta">Begin Your Practice</a>
+    </div>
+  </nav>
+
+  <!-- Compact card header -->
+  <header class="card-header">
+    <div class="card-header-inner reveal">
+      <span class="card-name-small">Heart · 4 &nbsp;·&nbsp; Fire</span>
+      <h1 class="card-title-compact">Spirit Path</h1>
+    </div>
+  </header>
+
+  <!-- Content -->
+  <main class="content">
+    <div class="content-inner">
+
+      <!-- Passage -->
+      <div class="section-label-row reveal reveal-delay">
+        <span class="section-label">Guidebook Passage</span>
+        <span class="read-time">2 min read</span>
+      </div>
+
+      <div class="passage reveal reveal-delay">
+        <p class="verse">
+          Let your heart tug you toward what makes your nature sing.<br>
+          Just as the oak lives inside the acorn,<br>
+          your path lives inside you.
+        </p>
+        <p class="first-para">It is not charted in maps or laid out by others. It pulses in the thrum of your chest, louder than fear, more vital than doubt.</p>
+        <p>Your heart knows the way. You only need to make space to hear it.</p>
+        <p>When you pause and turn inward, you are not searching for your path. You are remembering it.</p>
+        <p>In Taoism and Chinese medicine, the Heart is more than an organ. It is the home of Shen, your spirit. A vessel through which the Tao expresses itself.</p>
+        <p>When the Heart is clear and open, it becomes a compass, guiding you toward what resonates with your nature and aligning your action with the flow.</p>
+        <p class="pull">Clarity does not come from chasing or proving.<br>It comes from returning.<br>To stillness. To truth.<br>To the quiet authority of your own knowing.</p>
+        <p>The artists, visionaries, and seekers we revere did not force their brilliance into being. They made space for it. They listened. They followed what felt true.</p>
+        <p>Your heart is the instrument through which the universe guides you, moment by moment. When you align with it, you become a tuning fork for the Tao.</p>
+        <p>The way this boundless energy moves through you is your destiny. Your spirit path.</p>
+        <p class="verse">
+          Your heart is not lost.<br>
+          It has never been lost.<br>
+          Listen,<br>
+          and you will know the way.
+        </p>
+      </div>
+
+      <!-- Bridge -->
+      <div class="content-rule reveal"><span>✦</span></div>
+      <p class="bridge-text reveal">Read the passage now. Come back to the meditation whenever you have a few quiet minutes.</p>
+
+      <!-- Compact meditation player -->
+      <div class="meditation-block reveal reveal-delay">
+        <div class="meditation-meta">
+          <span class="meditation-label">Guided Meditation</span>
+          <span class="meditation-duration">11 Minutes</span>
+        </div>
+        <audio controls preload="none">
+          <source src="../../../assets/spirit_path_meditation.mp3" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+
+      <!-- Upsell -->
+      <div class="upsell reveal reveal-delay-2">
+        <p>If this card resonated, the full deck holds 62 points like it — each with its own passage, guided meditation, and daily ritual.</p>
+        <a href="../../../#offer" class="btn-gold">Explore the Full Deck — $125</a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>Spirit of the Points &nbsp;&bull;&nbsp; A Living Practice</p>
+    <p>&copy; 2026 Suzanne Spiegel. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
