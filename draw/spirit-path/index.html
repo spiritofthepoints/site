@@ -208,7 +208,7 @@
       position: relative;
       z-index: 1;
       background: var(--sand);
-      padding: 5rem 2rem 6rem;
+      padding: 6.5rem 2rem 6rem;
     }
     .card-content-inner {
       max-width: 680px;
@@ -252,6 +252,9 @@
       font-size: 1.08rem;
       line-height: 1.95;
       color: var(--indigo);
+      max-width: 54ch; /* ~60-70 chars per line */
+      margin-left: auto;
+      margin-right: auto;
     }
     .passage p { margin-bottom: 1.3rem; }
     .passage .verse {
@@ -273,6 +276,19 @@
       padding: 1.5rem 0;
       margin: 2rem 0;
       text-align: center;
+    }
+
+    /* Drop cap on first paragraph of passage */
+    .passage p.first-para::first-letter {
+      font-family: var(--font-cinzel);
+      font-size: 4.2em;
+      font-weight: 600;
+      line-height: 0.78;
+      float: left;
+      margin-right: 0.1em;
+      margin-top: 0.08em;
+      color: var(--indigo);
+      letter-spacing: -0.01em;
     }
 
     /* Audio block */
@@ -533,6 +549,7 @@
     <div class="card-content-inner">
 
       <!-- Passage -->
+      <div style="padding-top: 2.5rem;"></div>
       <span class="section-label reveal">Guidebook Passage</span>
       <div class="passage reveal">
         <p class="verse">
@@ -540,7 +557,7 @@
           Just as the oak lives inside the acorn,<br>
           your path lives inside you.
         </p>
-        <p>It is not charted in maps or laid out by others. It pulses in the thrum of your chest, louder than fear, more vital than doubt.</p>
+        <p class="first-para">It is not charted in maps or laid out by others. It pulses in the thrum of your chest, louder than fear, more vital than doubt.</p>
         <p>Your heart knows the way. You only need to make space to hear it.</p>
         <p>When you pause and turn inward, you are not searching for your path. You are remembering it.</p>
         <p>In Taoism and Chinese medicine, the Heart is more than an organ. It is the home of Shen, your spirit. A vessel through which the Tao expresses itself.</p>
