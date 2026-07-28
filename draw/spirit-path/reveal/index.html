@@ -115,6 +115,28 @@
       margin: 0 auto;
     }
 
+    /* Passage anchor row: thumbnail + label + read time */
+    .passage-anchor {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.1rem;
+      margin-bottom: 1.25rem;
+    }
+    .passage-anchor-thumb {
+      width: 52px;
+      flex-shrink: 0;
+      border-radius: 4px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.18), 0 0 0 1px rgba(199,162,90,0.15);
+      margin-top: 0.1rem;
+    }
+    .passage-anchor-meta {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.25rem;
+      padding-top: 0.15rem;
+    }
+
     /* Section label row */
     .section-label-row {
       display: flex;
@@ -330,9 +352,16 @@
     <div class="content-inner">
 
       <!-- Passage -->
-      <div class="section-label-row reveal reveal-delay">
-        <span class="section-label">Guidebook Passage</span>
-        <span class="read-time">2 min read</span>
+      <div class="passage-anchor reveal reveal-delay">
+        <img
+          src="../../../assets/card_spirit_path.jpg"
+          alt="Spirit Path oracle card"
+          class="passage-anchor-thumb"
+        />
+        <div class="passage-anchor-meta">
+          <span class="section-label">Guidebook Passage</span>
+          <span class="read-time">2 min read</span>
+        </div>
       </div>
 
       <div class="passage reveal reveal-delay">
