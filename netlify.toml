@@ -1,11 +1,13 @@
 [build]
+  functions = "netlify/functions"
+  publish = "."
+
 [[redirects]]
   from = "/one-hundred-meetings"
   to = "https://spirit-of-the-points-community.circle.so/c/conception-vessel/one-hundred-meetings-governor-vessel-20"
   status = 301
   force = true
-  functions = "netlify/functions"
-  publish = "."
+
 [functions]
   included_files = ["netlify/functions/**"]
 
