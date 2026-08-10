@@ -2,11 +2,394 @@
   functions = "netlify/functions"
   publish = "."
 
+# ── 62 QR Meditation Redirects ──────────────────────────────────────────────
+
+# Conception Vessel
+[[redirects]]
+  from = "/utmost-middle"
+  to = "https://spirit-of-the-points-community.circle.so/c/conception-vessel/utmost-middle-conception-vessel-3-0537f7-96c13c"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/sea-of-chi"
+  to = "https://spirit-of-the-points-community.circle.so/c/conception-vessel/sea-of-qi-conception-vessel-6-580a33"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/great-deficiency"
+  to = "https://spirit-of-the-points-community.circle.so/c/conception-vessel/great-deficiency-conception-vessel-14-4ec538-189612"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/dove-tail"
+  to = "https://spirit-of-the-points-community.circle.so/c/conception-vessel/dove-tail-conception-vessel-15-aa246c-c96220"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/flower-covering"
+  to = "https://spirit-of-the-points-community.circle.so/c/conception-vessel/conception-vessel-20-flower-covering-c47c0a"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/heaven-rushing-out"
+  to = "https://spirit-of-the-points-community.circle.so/c/conception-vessel/heaven-rushing-out-conception-vessel-22-cfe709"
+  status = 301
+  force = true
+
+# Governor Vessel
+[[redirects]]
+  from = "/gate-of-life"
+  to = "https://spirit-of-the-points-community.circle.so/c/conception-vessel/gate-of-life-governor-vessel-4"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/contracted-muscle"
+  to = "https://spirit-of-the-points-community.circle.so/c/conception-vessel/contracted-muscle-governor-vessel-8"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/body-pillar"
+  to = "https://spirit-of-the-points-community.circle.so/c/conception-vessel/body-pillar-governor-vessel-12"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/great-hammer"
+  to = "https://spirit-of-the-points-community.circle.so/c/conception-vessel/great-hammer-governor-vessel-14"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "/one-hundred-meetings"
   to = "https://spirit-of-the-points-community.circle.so/c/conception-vessel/one-hundred-meetings-governor-vessel-20"
   status = 301
   force = true
+
+# Water Element — Urinary Bladder
+[[redirects]]
+  from = "/receive-light"
+  to = "https://spirit-of-the-points-community.circle.so/c/water-element/receive-light-urinary-bladder-6"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/wail-of-grief"
+  to = "https://spirit-of-the-points-community.circle.so/c/water-element/wail-of-grief-urinary-bladder-40"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/spiritual-soul-gate"
+  to = "https://spirit-of-the-points-community.circle.so/c/water-element/spiritual-soul-gate-urinary-bladder-42"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/orderly-frontier"
+  to = "https://spirit-of-the-points-community.circle.so/c/water-element/orderly-frontier-urinary-bladder-49"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/bone-binder"
+  to = "https://spirit-of-the-points-community.circle.so/c/water-element/bone-binder-urinary-bladder-65-74523c"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/extremity-of-yin"
+  to = "https://spirit-of-the-points-community.circle.so/c/water-element/extremity-of-yin-urinary-bladder-67"
+  status = 301
+  force = true
+
+# Water Element — Kidney
+[[redirects]]
+  from = "/bubbling-spring"
+  to = "https://spirit-of-the-points-community.circle.so/c/water-element/bubbling-spring-kidney-1"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/yin-valley"
+  to = "https://spirit-of-the-points-community.circle.so/c/water-element/yin-valley-kidney-10"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/through-the-valley"
+  to = "https://spirit-of-the-points-community.circle.so/c/water-element/through-the-valley-kidney-20y"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/dark-gate"
+  to = "https://spirit-of-the-points-community.circle.so/c/water-element/dark-gate-kidney-21"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/spirit-storehouse"
+  to = "https://spirit-of-the-points-community.circle.so/c/water-element/spirit-storehouse-kidney-25"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/amidst-elegance"
+  to = "https://spirit-of-the-points-community.circle.so/c/water-element/amidst-elegance-kidney-26"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/storehouse"
+  to = "https://spirit-of-the-points-community.circle.so/c/water-element/storehouse-kidney-27"
+  status = 301
+  force = true
+
+# Wood Element — Gallbladder
+[[redirects]]
+  from = "/root-spirit"
+  to = "https://spirit-of-the-points-community.circle.so/c/wood-element/root-spirit-gallbladder-13"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/sun-and-moon"
+  to = "https://spirit-of-the-points-community.circle.so/c/wood-element/sun-and-moon-gallbladder-24"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/yang-support"
+  to = "https://spirit-of-the-points-community.circle.so/c/wood-element/yang-support-gallbladder-38"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/foot-above-tears"
+  to = "https://spirit-of-the-points-community.circle.so/c/wood-element/foot-above-tears-gallbladder-41"
+  status = 301
+  force = true
+
+# Wood Element — Liver
+[[redirects]]
+  from = "/great-esteem"
+  to = "https://spirit-of-the-points-community.circle.so/c/wood-element/great-esteem-liver-1"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/supreme-rushing"
+  to = "https://spirit-of-the-points-community.circle.so/c/wood-element/supreme-rushing-liver-3"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/insect-ditch"
+  to = "https://spirit-of-the-points-community.circle.so/c/wood-element/insect-ditch-liver-5"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/crooked-spring"
+  to = "https://spirit-of-the-points-community.circle.so/c/wood-element/crooked-spring-liver-8"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/gate-of-hope"
+  to = "https://spirit-of-the-points-community.circle.so/c/wood-element/gate-of-hope-liver-14"
+  status = 301
+  force = true
+
+# Fire Element — Heart
+[[redirects]]
+  from = "/utmost-source"
+  to = "https://spirit-of-the-points-community.circle.so/c/fire-element/utmost-source-heart-1"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/spirit-path"
+  to = "https://spirit-of-the-points-community.circle.so/c/fire-element/spirit-path-heart-4"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/yin-mound"
+  to = "https://spirit-of-the-points-community.circle.so/c/fire-element/yin-mound-heart-6"
+  status = 301
+  force = true
+
+# Fire Element — Small Intestine
+[[redirects]]
+  from = "/nourishing-the-old"
+  to = "https://spirit-of-the-points-community.circle.so/c/fire-element/nourishing-the-old-small-intestine-6"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/upright-shoulder"
+  to = "https://spirit-of-the-points-community.circle.so/c/fire-element/upright-shoulder-small-intestine-9"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/heavenly-ancestor"
+  to = "https://spirit-of-the-points-community.circle.so/c/fire-element/heavenly-ancestor-small-intestine-11"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/grasping-the-wind"
+  to = "https://spirit-of-the-points-community.circle.so/c/fire-element/grasping-the-wind-small-intestine-12"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/listening-palace"
+  to = "https://spirit-of-the-points-community.circle.so/c/fire-element/listening-palace-small-intestine-19"
+  status = 301
+  force = true
+
+# Fire Element — San Jiao
+[[redirects]]
+  from = "/palace-of-weariness"
+  to = "https://spirit-of-the-points-community.circle.so/c/fire-element/palace-of-weariness-san-jiao-8"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/outer-frontier-gate"
+  to = "https://spirit-of-the-points-community.circle.so/c/fire-element/outer-frontier-gate-san-jiao-5"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/relax-and-joy"
+  to = "https://spirit-of-the-points-community.circle.so/c/fire-element/relax-and-joy-san-jiao-10"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/heavenly-window"
+  to = "https://spirit-of-the-points-community.circle.so/c/fire-element/heavenly-window-san-jiao-16"
+  status = 301
+  force = true
+
+# Earth Element — Stomach
+[[redirects]]
+  from = "/head-tied"
+  to = "https://spirit-of-the-points-community.circle.so/c/earth-element/head-tied-stomach-8"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/broken-bowl"
+  to = "https://spirit-of-the-points-community.circle.so/c/earth-element/broken-bowl-stomach-12"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/room-screen"
+  to = "https://spirit-of-the-points-community.circle.so/c/earth-element/room-screen-stomach-15"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/receiving-fullness"
+  to = "https://spirit-of-the-points-community.circle.so/c/earth-element/receiving-fullness-stomach-20"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/great-oneness"
+  to = "https://spirit-of-the-points-community.circle.so/c/earth-element/great-oneness-stomach-23"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/the-return"
+  to = "https://spirit-of-the-points-community.circle.so/c/earth-element/the-return-stomach-29"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/abundant-splendor"
+  to = "https://spirit-of-the-points-community.circle.so/c/earth-element/abundant-splendor-stomach-40"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/inner-courtyard"
+  to = "https://spirit-of-the-points-community.circle.so/c/earth-element/inner-courtyard-stomach-44"
+  status = 301
+  force = true
+
+# Earth Element — Spleen
+[[redirects]]
+  from = "/great-capitol"
+  to = "https://spirit-of-the-points-community.circle.so/c/earth-element/great-capitol-spleen-2"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/official-residence"
+  to = "https://spirit-of-the-points-community.circle.so/c/earth-element/official-residence-spleen-13"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/abdomen-sorrow"
+  to = "https://spirit-of-the-points-community.circle.so/c/earth-element/abdomen-sorrow-spleen-16"
+  status = 301
+  force = true
+
+# Metal Element — Lung
+[[redirects]]
+  from = "/middle-palace"
+  to = "https://spirit-of-the-points-community.circle.so/c/metal-element/middle-palace-lung-1"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/valiant-white"
+  to = "https://spirit-of-the-points-community.circle.so/c/metal-element/valiant-white-lung-4"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/thunderlight"
+  to = "https://spirit-of-the-points-community.circle.so/c/metal-element/thunderlight-lung-7"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/little-merchant"
+  to = "https://spirit-of-the-points-community.circle.so/c/metal-element/little-merchant-lung-11"
+  status = 301
+  force = true
+
+# Metal Element — Large Intestine
+[[redirects]]
+  from = "/warm-current"
+  to = "https://spirit-of-the-points-community.circle.so/c/metal-element/warm-current-large-intestine-7"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/support-and-rush-out"
+  to = "https://spirit-of-the-points-community.circle.so/c/metal-element/support-and-rush-out-large-intestine-18"
+  status = 301
+  force = true
+
+# ── End of redirects ────────────────────────────────────────────────────────
 
 [functions]
   included_files = ["netlify/functions/**"]
